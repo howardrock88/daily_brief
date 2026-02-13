@@ -21,7 +21,6 @@
 </head>
 <body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
   <div class="container mx-auto px-4 py-8 max-w-7xl">
-    <!-- 头部 + 搜索 -->
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
       <div>
         <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">🤖 大蒜粒机研所行业早报</h1>
@@ -35,10 +34,8 @@
       </div>
     </div>
 
-    <!-- 卡片网格 - 响应式布局 -->
     <div id="cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
     
-    <!-- 无结果提示 -->
     <div id="no-result" class="hidden text-center py-12">
       <p class="text-purple-300 text-lg">没有找到相关新闻</p>
     </div>
@@ -50,7 +47,6 @@
 
     let allBriefs = [];
 
-    // 加载所有早报数据
     async function loadData() {
       try {
         const response = await fetch(`https://raw.githubusercontent.com/${REPO}/main/${DATA_FILE}?t=${Date.now()}`);
@@ -65,7 +61,6 @@
       }
     }
 
-    // 渲染早报卡片
     function renderBriefs(briefs) {
       const container = document.getElementById('cards');
       
@@ -106,30 +101,35 @@
       `).join('');
     }
 
-    // 格式化日期
     function formatDate(dateStr) {
       const date = new Date(dateStr.replace(/-/g, '/'));
       return `${date.getMonth() + 1}月${date.getDate()}日`;
     }
 
-    // 解析来源，生成可点击链接
     function parseSource(source) {
       if (!source) return '';
       
-      // 匹配 URL
-      const urlMatch = source.match(/https?:\/\/[^\s]+/);
-      if (urlMatch) {
-        const url = urlMatch[0];
-        // 提取媒体名（去掉 URL 和空格）
+      // 优先匹配完整URL（带http/https）
+      const httpMatch = source.match(/https?:\/\/[^\s]+/);
+      if (httpMatch) {
+        const url = httpMatch[0];
         const name = source.replace(url, '').replace(/^\s+|\s+$/g, '');
         return `${name} <a href="${url}" target="_blank" class="source-link">🔗 ${getDomain(url)}</a>`;
       }
       
-      // 没有 URL，只返回纯文本
+      // 匹配域名格式（如 www.example.com 或 example.com）
+      const domainMatch = source.match(/(\.com|\.cn|\.io|\.org|\.net)[^\s]*/);
+      if (domainMatch) {
+        const domain = domainMatch[0];
+        const url = 'https://' + domain;
+        const name = source.replace(domain, '').replace(/^\s+|\s+$/g, '');
+        return `${name} <a href="${url}" target="_blank" class="source-link">🔗 ${domain}</a>`;
+      }
+      
+      // 没有URL或域名，返回纯文本
       return source;
     }
 
-    // 获取域名
     function getDomain(url) {
       try {
         const domain = new URL(url).hostname;
@@ -139,7 +139,6 @@
       }
     }
 
-    // 打开详情
     function openDetail(idx) {
       const brief = allBriefs[idx];
       
@@ -194,7 +193,6 @@
       document.body.insertAdjacentHTML('beforeend', html);
     }
 
-    // 关闭详情
     function closeDetail(e) {
       if (!e || e.target === e.currentTarget) {
         const modal = document.querySelector('body > div.fixed');
@@ -202,7 +200,6 @@
       }
     }
 
-    // 搜索过滤
     function filterCards() {
       const keyword = document.getElementById('search').value.toLowerCase().trim();
       
@@ -232,7 +229,6 @@
       }
     }
 
-    // 初始化
     loadData();
   </script>
 </body>

@@ -16,7 +16,7 @@
     "funding": [
       {
         "title": "临界点获数亿元融资",
-        "desc": "灵巧手公司临界点完成新一轮数亿元融资。",
+        "desc": "灵巧手公司临界点完成新一轮数亿元融资，由头部互联网大厂领投、百度风投、云锋基金等跟投。",
         "source": "36氪 36kr.com/p/3678179258425990"
       },
       {
@@ -34,39 +34,39 @@
       {
         "title": "Google和奔驰联手支持Apollo人形机器人",
         "desc": "Google DeepMind与Apptronik合作，将先进AI技术应用于Apollo人形机器人。",
-        "source": "Interesting Engineering"
+        "source": "Interesting Engineering interestingengineering.com/ai-robotics/us-startup-raises-funds-to-deploy-apollo"
       },
       {
         "title": "嵩山少林寺机器人表演功夫",
-        "desc": "人形机器人在嵩山少林寺表演功夫。",
-        "source": "Times of India"
+        "desc": "人形机器人在嵩山少林寺表演功夫，展示机器人技术与AI运动学习技术的结合。",
+        "source": "Times of India timesofindia.indiatimes.com/entertainment/humanoid-robots-practice-kung-fu-at-shaolin-temple"
       },
       {
         "title": "埃斯顿酷卓发布第二代人形机器人Codroid 02",
         "desc": "Codroid 02身高170cm，体重70kg，单臂负载5公斤，全身31个自由度。",
-        "source": "哔哩哔哩"
+        "source": "哔哩哔哩 www.bilibili.com/video/BV1rGMHzAEnd"
       }
     ],
     "news": [
       {
         "title": "比尔·盖茨时隔两年半再度访华",
-        "desc": "2月11日，比尔·盖茨现身上海张江。",
-        "source": "IT之家"
+        "desc": "2月11日，比尔·盖茨现身上海张江，聚焦全球健康与发展议题。",
+        "source": "IT之家 www.ithome.com/0/921/201.htm"
       },
       {
         "title": "荣耀前CEO赵明将加入千里科技董事会",
-        "desc": "赵明将任千里科技联席董事长。",
-        "source": "虎嗅"
+        "desc": "赵明将任千里科技联席董事长，重点推进AI商业模式闭环战略。",
+        "source": "虎嗅 www.huxiu.com/article/4834817.html"
       },
       {
         "title": "Anthropic向AI监管组织捐赠2000万美元",
-        "desc": "用于2026年选举前的AI监管倡导。",
-        "source": "CNBC"
+        "desc": "Anthropic宣布向推动AI监管的组织捐赠2000万美元，用于2026年选举前的AI监管倡导。",
+        "source": "CNBC www.cnbc.com/2026/02/12/anthropic-gives-20-million-to-group-pushing-for-ai-regulations"
       },
       {
         "title": "18家中国公司亮相CES，展示消费级AI机器人",
-        "desc": "从仿生宠物、情绪机器人到教育陪伴机器人。",
-        "source": "36氪"
+        "desc": "从仿生宠物、情绪机器人到教育陪伴机器人，一批中国创业公司在CES 2026上展示新方案。",
+        "source": "36氪 36kr.com/p/3630131383977225"
       }
     ]
   },
@@ -75,34 +75,34 @@
     "focus": [
       {
         "title": "Meta投资100亿美元建设AI数据中心",
-        "desc": "Meta在印第安纳州开始建设约100亿美元的数据中心。",
-        "source": "Tech Startups"
+        "desc": "Meta在印第安纳州开始建设约100亿美元的数据中心，预计2027年底或2028年初投入运营。",
+        "source": "Tech Startups techstartups.com/2026/02/12"
       },
       {
         "title": "具身智能赛道融资激增217%",
-        "desc": "2025年具身智能赛道融资金额从95.25亿元扩大至405.99亿元。",
-        "source": "虎嗅"
+        "desc": "据IT桔子数据，2025年具身智能赛道融资金额从95.25亿元扩大至405.99亿元。",
+        "source": "虎嗅 m.huxiu.com/article/4834576.html"
       }
     ],
     "funding": [
       {
         "title": "Seyond上市后业绩增长",
-        "desc": "Seyond在港交所上市后实现显著同比增长。",
-        "source": "Markets Insider"
+        "desc": "Seyond在港交所上市后实现显著同比增长，巩固在物理AI和机器人市场的地位。",
+        "source": "Markets Insider markets.businessinsider.com/news/stocks/seyond-ipo-strengthens-position"
       }
     ],
     "tech": [
       {
         "title": "原力无限发布小原子机器人",
-        "desc": "48小时内预定突破百台。",
-        "source": "36氪"
+        "desc": "2026年2月4日，原力无限发布心智原生双足机器人「小原子」，48小时内预定突破百台。",
+        "source": "36氪 36kr.com/p/3675521046143619"
       }
     ],
     "news": [
       {
         "title": "宇树科技完成新一轮融资",
-        "desc": "宇树科技完成新一轮融资，估值大幅提升。",
-        "source": "36氪"
+        "desc": "宇树科技完成新一轮融资，估值大幅提升，成为具身智能赛道明星企业。",
+        "source": "36氪 36kr.com/p/3680980301885317"
       }
     ]
   }

@@ -117,13 +117,12 @@
         return `${name} <a href="${url}" target="_blank" class="source-link">🔗 ${getDomain(url)}</a>`;
       }
       
-      // 匹配域名格式（如 www.example.com 或 example.com）
-      const domainMatch = source.match(/(\.com|\.cn|\.io|\.org|\.net)[^\s]*/);
+      // 匹配域名格式（如 www.example.com、example.com、example.com.cn 等）
+      const domainMatch = source.match(/[a-zA-Z0-9][a-zA-Z0-9.-]*\.(com|cn|io|org|net)(\/[^\s]*)?/);
       if (domainMatch) {
-        const domain = domainMatch[0];
-        const url = 'https://' + domain;
-        const name = source.replace(domain, '').replace(/^\s+|\s+$/g, '');
-        return `${name} <a href="${url}" target="_blank" class="source-link">🔗 ${domain}</a>`;
+        const url = 'https://' + domainMatch[0];
+        const name = source.replace(domainMatch[0], '').replace(/^\s+|\s+$/g, '');
+        return `${name} <a href="${url}" target="_blank" class="source-link">🔗 ${domainMatch[0]}</a>`;
       }
       
       // 没有URL或域名，返回纯文本

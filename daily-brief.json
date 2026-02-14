@@ -4,7 +4,7 @@
     {
       "title": "OpenAI警告：DeepSeek瞄准ChatGPT及美国AI公司进行模型复制",
       "desc": "OpenAI向美国会提交备忘录称，中国AI初创公司DeepSeek正针对ChatGPT及美国领先AI公司，试图复制其模型用于自身训练，引发技术安全担忧。",
-      "source": "Reuters | X @Reuters https://www.reuters.com/technology/artificial-intelligence/openai-warns-chinese-ai-startup-deepseek-targeting-chatgpt-2026-02-13/ | https://x.com/Reuters/status/2022150004861808736"
+      "source": "Reuters https://www.reuters.com/technology/artificial-intelligence/openai-warns-chinese-ai-startup-deepseek-targeting-chatgpt-2026-02-13/"
     },
     {
       "title": "原力灵机发布DM0具身模型，联合HuggingFace推真机评测基准RoboChallenge",
@@ -14,14 +14,14 @@
   ],
   "funding": [
     {
-      "title": "全球1月创业融资$550亿，AI主导新增31家独角兽",
-      "desc": "Crunchbase数据显示，1月全球融资创2022年6月以来新高，AI领域贡献主要增量。美国主导融资，中国以两笔AI模型IPO领衔退出。",
-      "source": "X @crunchbase | X @crunchbasenews https://x.com/crunchbase/status/2022368457673621986"
+      "title": "五角大楼推动OpenAI、Anthropic向保密网络提供AI工具",
+      "desc": "美国国防部正推动包括OpenAI和Anthropic在内的顶级AI公司，在标准限制较少的情况下向保密网络提供AI工具。",
+      "source": "Reuters https://www.reuters.com/technology/pentagon-ai-companies-classified-networks-2026-02-12/"
     },
     {
-      "title": "Anthropic融资$300亿，估值$3800亿成史上第二大风投交易",
-      "desc": "MGX领投Anthropic Claude制造商融资，史上第二大风投交易。Anthropic累计融资近$640亿，报告营收超$140亿。",
-      "source": "X @CircuitDotNews | X @crunchbasenews https://x.com/CircuitDotNews/status/2022430303189336450"
+      "title": "软银连续第四季度盈利，OpenAI投资贡献显著",
+      "desc": "软银集团报告连续第四季度盈利，得益于OpenAI投资带来的收益。随着AI投资扩张，公司承担更多债务。",
+      "source": "Reuters https://www.reuters.com/business/softbank-group-ai-investments-2026-02-12/"
     }
   ],
   "tech": [
@@ -45,12 +45,12 @@
     {
       "title": "AI担忧引发科技股抛售，纳斯达克重挫2%",
       "desc": "投资者加剧科技股抛售，担忧AI技术对商业世界的颠覆。纳斯达克指数大幅下跌，市场情绪转向谨慎。",
-      "source": "Reuters | X @Reuters https://www.reuters.com/markets/ai-concerns-trigger-tech-selloff-nasdaq-2026-02-13/ | https://x.com/Reuters/status/2022128596412694831"
+      "source": "Reuters https://www.reuters.com/markets/ai-concerns-trigger-tech-selloff-nasdaq-2026-02-13/"
     },
     {
-      "title": "软银连续第四季度盈利，OpenAI投资贡献显著",
-      "desc": "软银集团报告连续第四季度盈利，得益于OpenAI投资带来的收益。随着AI投资扩张，公司承担更多债务。",
-      "source": "Reuters | X @Reuters https://www.reuters.com/business/softbank-group-ai-investments-2026-02-12/ | https://x.com/Reuters/status/2021933557032378753"
+      "title": "美国FDA收AI医疗设备故障报告",
+      "desc": "FDA在AI添加到慢性鼻窦炎治疗医疗设备后，收到至少100起故障和不良事件报告。",
+      "source": "Reuters https://www.reuters.com/healthcare-fda-ai-medical-device-2026-02-09/"
     }
   ]
 }

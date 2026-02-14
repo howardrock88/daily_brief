@@ -1,109 +1,56 @@
-[
-  {
-    "date": "2026-02-13",
-    "focus": [
-      {
-        "title": "OpenAI、Anthropic、Google罕见联手，共同推出AI创业加速器",
-        "desc": "三大AI巨头宣布共同推出F/ai创业加速器项目，Meta、Microsoft和Sequoia也参与其中。",
-        "source": "Inc www.inc.com"
-      },
-      {
-        "title": "Anthropic估值达3800亿美元",
-        "desc": "Anthropic估值跃升至3800亿美元，进一步缩小与OpenAI的差距。",
-        "source": "Click on Detroit www.clickondetroit.com"
-      }
-    ],
-    "funding": [
-      {
-        "title": "临界点获数亿元融资",
-        "desc": "灵巧手公司临界点完成新一轮数亿元融资，由头部互联网大厂领投、百度风投、云锋基金等跟投。",
-        "source": "36氪 36kr.com/p/3678179258425990"
-      },
-      {
-        "title": "Onconetix收购Realbotix",
-        "desc": "2月12日，Onconetix宣布收购美国AI人形机器人公司Realbotix。",
-        "source": "Stock Titan www.stocktitan.net/news/ai.html"
-      },
-      {
-        "title": "星际光年完成Pre-A轮融资",
-        "desc": "构建具身智能落地物理世界'最后一厘米'。",
-        "source": "36氪 36kr.com/p/3519660933962629"
-      }
-    ],
-    "tech": [
-      {
-        "title": "Google和奔驰联手支持Apollo人形机器人",
-        "desc": "Google DeepMind与Apptronik合作，将先进AI技术应用于Apollo人形机器人。",
-        "source": "Interesting Engineering interestingengineering.com/ai-robotics/us-startup-raises-funds-to-deploy-apollo"
-      },
-      {
-        "title": "嵩山少林寺机器人表演功夫",
-        "desc": "人形机器人在嵩山少林寺表演功夫，展示机器人技术与AI运动学习技术的结合。",
-        "source": "Times of India timesofindia.indiatimes.com/entertainment/humanoid-robots-practice-kung-fu-at-shaolin-temple"
-      },
-      {
-        "title": "埃斯顿酷卓发布第二代人形机器人Codroid 02",
-        "desc": "Codroid 02身高170cm，体重70kg，单臂负载5公斤，全身31个自由度。",
-        "source": "哔哩哔哩 www.bilibili.com/video/BV1rGMHzAEnd"
-      }
-    ],
-    "news": [
-      {
-        "title": "比尔·盖茨时隔两年半再度访华",
-        "desc": "2月11日，比尔·盖茨现身上海张江，聚焦全球健康与发展议题。",
-        "source": "IT之家 www.ithome.com/0/921/201.htm"
-      },
-      {
-        "title": "荣耀前CEO赵明将加入千里科技董事会",
-        "desc": "赵明将任千里科技联席董事长，重点推进AI商业模式闭环战略。",
-        "source": "虎嗅 www.huxiu.com/article/4834817.html"
-      },
-      {
-        "title": "Anthropic向AI监管组织捐赠2000万美元",
-        "desc": "Anthropic宣布向推动AI监管的组织捐赠2000万美元，用于2026年选举前的AI监管倡导。",
-        "source": "CNBC www.cnbc.com/2026/02/12/anthropic-gives-20-million-to-group-pushing-for-ai-regulations"
-      },
-      {
-        "title": "18家中国公司亮相CES，展示消费级AI机器人",
-        "desc": "从仿生宠物、情绪机器人到教育陪伴机器人，一批中国创业公司在CES 2026上展示新方案。",
-        "source": "36氪 36kr.com/p/3630131383977225"
-      }
-    ]
-  },
-  {
-    "date": "2026-02-12",
-    "focus": [
-      {
-        "title": "Meta投资100亿美元建设AI数据中心",
-        "desc": "Meta在印第安纳州开始建设约100亿美元的数据中心，预计2027年底或2028年初投入运营。",
-        "source": "Tech Startups techstartups.com/2026/02/12"
-      },
-      {
-        "title": "具身智能赛道融资激增217%",
-        "desc": "据IT桔子数据，2025年具身智能赛道融资金额从95.25亿元扩大至405.99亿元。",
-        "source": "虎嗅 m.huxiu.com/article/4834576.html"
-      }
-    ],
-    "funding": [
-      {
-        "title": "Seyond上市后业绩增长",
-        "desc": "Seyond在港交所上市后实现显著同比增长，巩固在物理AI和机器人市场的地位。",
-        "source": "Markets Insider markets.businessinsider.com/news/stocks/seyond-ipo-strengthens-position"
-      }
-    ],
-    "tech": [
-      {
-        "title": "原力无限发布小原子机器人",
-        "desc": "2026年2月4日，原力无限发布心智原生双足机器人「小原子」，48小时内预定突破百台。",
-        "source": "36氪 36kr.com/p/3675521046143619"
-      }
-    ],
-    "news": [
-      {
-        "title": "宇树科技完成新一轮融资",
-        "desc": "宇树科技完成新一轮融资，估值大幅提升，成为具身智能赛道明星企业。",
-        "source": "36氪 36kr.com/p/3680980301885317"
-      }
-    ]
-  }
-]
+{
+  "date": "2026年2月14日（涵盖2月13日新闻）",
+  "focus": [
+    {
+      "title": "OpenAI警告：DeepSeek瞄准ChatGPT及美国AI公司进行模型复制",
+      "desc": "OpenAI向美国会提交备忘录称，中国AI初创公司DeepSeek正针对ChatGPT及美国领先AI公司，试图复制其模型用于自身训练，引发技术安全担忧。",
+      "source": "Reuters | X @Reuters https://www.reuters.com/technology/artificial-intelligence/openai-warns-chinese-ai-startup-deepseek-targeting-chatgpt-2026-02-13/ | https://x.com/Reuters/status/2022150004861808736"
+    },
+    {
+      "title": "原力灵机发布DM0具身模型，联合HuggingFace推真机评测基准RoboChallenge",
+      "desc": "前旷视联创唐文斌创立的原力灵机发布2.4B参数具身模型DM0，登顶RoboChallenge榜首。公司成立不到一年累计融资近10亿元，投资方包括阿里、蔚来资本、联想创投。",
+      "source": "36氪 https://36kr.com/p/3681608747609988"
+    }
+  ],
+  "funding": [
+    {
+      "title": "全球1月创业融资$550亿，AI主导新增31家独角兽",
+      "desc": "Crunchbase数据显示，1月全球融资创2022年6月以来新高，AI领域贡献主要增量。美国主导融资，中国以两笔AI模型IPO领衔退出。",
+      "source": "X @crunchbase | X @crunchbasenews https://x.com/crunchbase/status/2022368457673621986"
+    },
+    {
+      "title": "Anthropic融资$300亿，估值$3800亿成史上第二大风投交易",
+      "desc": "MGX领投Anthropic Claude制造商融资，史上第二大风投交易。Anthropic累计融资近$640亿，报告营收超$140亿。",
+      "source": "X @CircuitDotNews | X @crunchbasenews https://x.com/CircuitDotNews/status/2022430303189336450"
+    }
+  ],
+  "tech": [
+    {
+      "title": "字节跳动Seedance 2.0引发好莱坞版权抵制风暴",
+      "desc": "字节2月12日推出AI视频模型Seedance 2.0，生成视频可用率超90%。美国电影协会指责其大规模版权侵权，冯骥称其为\"地表最强\"。",
+      "source": "钛媒体 https://www.tmtpost.com/7880532.html"
+    },
+    {
+      "title": "OpenAI正式退役GPT-4o，推向更高定价的GPT-5专用推理模型",
+      "desc": "OpenAI终止GPT-4o访问权限，引导用户转向利润更高的专用推理模型GPT-5。百度、阿里正加速抢占市场空白。",
+      "source": "钛媒体 https://www.tmtpost.com/7880486.html"
+    },
+    {
+      "title": "AI漫剧制作成本打一折，200亿市场迎剧变",
+      "desc": "字节Seedance 2.0将AI漫剧制作周期从21天压缩至3天，单集成本从2万元降至3000元，欢瑞世纪等影视股涨停。",
+      "source": "钛媒体 https://www.tmtpost.com/7880254.html"
+    }
+  ],
+  "news": [
+    {
+      "title": "AI担忧引发科技股抛售，纳斯达克重挫2%",
+      "desc": "投资者加剧科技股抛售，担忧AI技术对商业世界的颠覆。纳斯达克指数大幅下跌，市场情绪转向谨慎。",
+      "source": "Reuters | X @Reuters https://www.reuters.com/markets/ai-concerns-trigger-tech-selloff-nasdaq-2026-02-13/ | https://x.com/Reuters/status/2022128596412694831"
+    },
+    {
+      "title": "软银连续第四季度盈利，OpenAI投资贡献显著",
+      "desc": "软银集团报告连续第四季度盈利，得益于OpenAI投资带来的收益。随着AI投资扩张，公司承担更多债务。",
+      "source": "Reuters | X @Reuters https://www.reuters.com/business/softbank-group-ai-investments-2026-02-12/ | https://x.com/Reuters/status/2021933557032378753"
+    }
+  ]
+}

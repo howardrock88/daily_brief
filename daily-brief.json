@@ -1,56 +1,129 @@
-{
-  "date": "2026年2月14日（涵盖2月13日新闻）",
-  "focus": [
-    {
-      "title": "OpenAI警告：DeepSeek瞄准ChatGPT及美国AI公司进行模型复制",
-      "desc": "OpenAI向美国会提交备忘录称，中国AI初创公司DeepSeek正针对ChatGPT及美国领先AI公司，试图复制其模型用于自身训练，引发技术安全担忧。",
-      "source": "Reuters https://www.reuters.com/technology/artificial-intelligence/openai-warns-chinese-ai-startup-deepseek-targeting-chatgpt-2026-02-13/"
-    },
-    {
-      "title": "原力灵机发布DM0具身模型，联合HuggingFace推真机评测基准RoboChallenge",
-      "desc": "前旷视联创唐文斌创立的原力灵机发布2.4B参数具身模型DM0，登顶RoboChallenge榜首。公司成立不到一年累计融资近10亿元，投资方包括阿里、蔚来资本、联想创投。",
-      "source": "36氪 https://36kr.com/p/3681608747609988"
-    }
-  ],
-  "funding": [
-    {
-      "title": "五角大楼推动OpenAI、Anthropic向保密网络提供AI工具",
-      "desc": "美国国防部正推动包括OpenAI和Anthropic在内的顶级AI公司，在标准限制较少的情况下向保密网络提供AI工具。",
-      "source": "Reuters https://www.reuters.com/technology/pentagon-ai-companies-classified-networks-2026-02-12/"
-    },
-    {
-      "title": "软银连续第四季度盈利，OpenAI投资贡献显著",
-      "desc": "软银集团报告连续第四季度盈利，得益于OpenAI投资带来的收益。随着AI投资扩张，公司承担更多债务。",
-      "source": "Reuters https://www.reuters.com/business/softbank-group-ai-investments-2026-02-12/"
-    }
-  ],
-  "tech": [
-    {
-      "title": "字节跳动Seedance 2.0引发好莱坞版权抵制风暴",
-      "desc": "字节2月12日推出AI视频模型Seedance 2.0，生成视频可用率超90%。美国电影协会指责其大规模版权侵权，冯骥称其为\"地表最强\"。",
-      "source": "钛媒体 https://www.tmtpost.com/7880532.html"
-    },
-    {
-      "title": "OpenAI正式退役GPT-4o，推向更高定价的GPT-5专用推理模型",
-      "desc": "OpenAI终止GPT-4o访问权限，引导用户转向利润更高的专用推理模型GPT-5。百度、阿里正加速抢占市场空白。",
-      "source": "钛媒体 https://www.tmtpost.com/7880486.html"
-    },
-    {
-      "title": "AI漫剧制作成本打一折，200亿市场迎剧变",
-      "desc": "字节Seedance 2.0将AI漫剧制作周期从21天压缩至3天，单集成本从2万元降至3000元，欢瑞世纪等影视股涨停。",
-      "source": "钛媒体 https://www.tmtpost.com/7880254.html"
-    }
-  ],
-  "news": [
-    {
-      "title": "AI担忧引发科技股抛售，纳斯达克重挫2%",
-      "desc": "投资者加剧科技股抛售，担忧AI技术对商业世界的颠覆。纳斯达克指数大幅下跌，市场情绪转向谨慎。",
-      "source": "Reuters https://www.reuters.com/markets/ai-concerns-trigger-tech-selloff-nasdaq-2026-02-13/"
-    },
-    {
-      "title": "美国FDA收AI医疗设备故障报告",
-      "desc": "FDA在AI添加到慢性鼻窦炎治疗医疗设备后，收到至少100起故障和不良事件报告。",
-      "source": "Reuters https://www.reuters.com/healthcare-fda-ai-medical-device-2026-02-09/"
-    }
-  ]
-}
+[
+  {
+    "date": "2026年2月14日（涵盖2月13日新闻）",
+    "focus": [
+      {
+        "title": "OpenAI警告：DeepSeek瞄准ChatGPT及美国AI公司进行模型复制",
+        "desc": "OpenAI向美国会提交备忘录称，中国AI初创公司DeepSeek正针对ChatGPT及美国领先AI公司，试图复制其模型用于自身训练，引发技术安全担忧。",
+        "source": "Reuters https://www.reuters.com/technology/artificial-intelligence/openai-warns-chinese-ai-startup-deepseek-targeting-chatgpt-2026-02-13/"
+      },
+      {
+        "title": "原力灵机发布DM0具身模型，联合HuggingFace推真机评测基准RoboChallenge",
+        "desc": "前旷视联创唐文斌创立的原力灵机发布2.4B参数具身模型DM0，登顶RoboChallenge榜首。公司成立不到一年累计融资近10亿元，投资方包括阿里、蔚来资本、联想创投。",
+        "source": "36氪 https://36kr.com/p/3681608747609988"
+      }
+    ],
+    "funding": [
+      {
+        "title": "五角大楼推动OpenAI、Anthropic向保密网络提供AI工具",
+        "desc": "美国国防部正推动包括OpenAI和Anthropic在内的顶级AI公司，在标准限制较少的情况下向保密网络提供AI工具。",
+        "source": "Reuters https://www.reuters.com/technology/pentagon-ai-companies-classified-networks-2026-02-12/"
+      },
+      {
+        "title": "软银连续第四季度盈利，OpenAI投资贡献显著",
+        "desc": "软银集团报告连续第四季度盈利，得益于OpenAI投资带来的收益。随着AI投资扩张，公司承担更多债务。",
+        "source": "Reuters https://www.reuters.com/business/softbank-group-ai-investments-2026-02-12/"
+      }
+    ],
+    "tech": [
+      {
+        "title": "字节跳动Seedance 2.0引发好莱坞版权抵制风暴",
+        "desc": "字节2月12日推出AI视频模型Seedance 2.0，生成视频可用率超90%。美国电影协会指责其大规模版权侵权，冯骥称其为\"地表最强\"。",
+        "source": "钛媒体 https://www.tmtpost.com/7880532.html"
+      },
+      {
+        "title": "OpenAI正式退役GPT-4o，推向更高定价的GPT-5专用推理模型",
+        "desc": "OpenAI终止GPT-4o访问权限，引导用户转向利润更高的专用推理模型GPT-5。百度、阿里正加速抢占市场空白。",
+        "source": "钛媒体 https://www.tmtpost.com/7880486.html"
+      },
+      {
+        "title": "AI漫剧制作成本打一折，200亿市场迎剧变",
+        "desc": "字节Seedance 2.0将AI漫剧制作周期从21天压缩至3天，单集成本从2万元降至3000元，欢瑞世纪等影视股涨停。",
+        "source": "钛媒体 https://www.tmtpost.com/7880254.html"
+      }
+    ],
+    "news": [
+      {
+        "title": "AI担忧引发科技股抛售，纳斯达克重挫2%",
+        "desc": "投资者加剧科技股抛售，担忧AI技术对商业世界的颠覆。纳斯达克指数大幅下跌，市场情绪转向谨慎。",
+        "source": "Reuters https://www.reuters.com/markets/ai-concerns-trigger-tech-selloff-nasdaq-2026-02-13/"
+      },
+      {
+        "title": "美国FDA收AI医疗设备故障报告",
+        "desc": "FDA在AI添加到慢性鼻窦炎治疗医疗设备后，收到至少100起故障和不良事件报告。",
+        "source": "Reuters https://www.reuters.com/healthcare-fda-ai-medical-device-2026-02-09/"
+      }
+    ]
+  },
+  {
+    "date": "2026年2月13日",
+    "focus": [
+      {
+        "title": "OpenAI、Anthropic、Google罕见联手，共同推出AI创业加速器",
+        "desc": "三大AI巨头宣布共同推出F/ai创业加速器项目，Meta、Microsoft和Sequoia也参与其中。",
+        "source": "Inc https://www.inc.com"
+      },
+      {
+        "title": "Anthropic估值达3800亿美元",
+        "desc": "Anthropic估值跃升至3800亿美元，进一步缩小与OpenAI的差距。",
+        "source": "Click on Detroit https://www.clickondetroit.com"
+      }
+    ],
+    "funding": [
+      {
+        "title": "临界点获数亿元融资",
+        "desc": "灵巧手公司临界点完成新一轮数亿元融资。",
+        "source": "36氪 https://36kr.com/p/3678179258425990"
+      },
+      {
+        "title": "Onconetix收购Realbotix",
+        "desc": "2月12日，Onconetix宣布收购美国AI人形机器人公司Realbotix。",
+        "source": "Stock Titan https://www.stocktitan.net/news/ai.html"
+      },
+      {
+        "title": "星际光年完成Pre-A轮融资",
+        "desc": "构建具身智能落地物理世界'最后一厘米'。",
+        "source": "36氪 https://36kr.com/p/3519660933962629"
+      }
+    ],
+    "tech": [
+      {
+        "title": "Google和奔驰联手支持Apollo人形机器人",
+        "desc": "Google DeepMind与Apptronik合作，将先进AI技术应用于Apollo人形机器人。",
+        "source": "Interesting Engineering https://www.interestingengineering.com"
+      },
+      {
+        "title": "嵩山少林寺机器人表演功夫",
+        "desc": "人形机器人在嵩山少林寺表演功夫。",
+        "source": "Times of India https://timesofindia.indiatimes.com"
+      },
+      {
+        "title": "埃斯顿酷卓发布第二代人形机器人Codroid 02",
+        "desc": "Codroid 02身高170cm，体重70kg，单臂负载5公斤，全身31个自由度。",
+        "source": "哔哩哔哩 https://www.bilibili.com"
+      }
+    ],
+    "news": [
+      {
+        "title": "比尔·盖茨时隔两年半再度访华",
+        "desc": "2月11日，比尔·盖茨现身上海张江。",
+        "source": "IT之家 https://www.ithome.com"
+      },
+      {
+        "title": "荣耀前CEO赵明将加入千里科技董事会",
+        "desc": "赵明将任千里科技联席董事长。",
+        "source": "虎嗅 https://www.huxiu.com"
+      },
+      {
+        "title": "Anthropic向AI监管组织捐赠2000万美元",
+        "desc": "用于2026年选举前的AI监管倡导。",
+        "source": "CNBC https://www.cnbc.com"
+      },
+      {
+        "title": "18家中国公司亮相CES，展示消费级AI机器人",
+        "desc": "从仿生宠物、情绪机器人到教育陪伴机器人。",
+        "source": "36氪 https://36kr.com"
+      }
+    ]
+  }
+]

@@ -33,12 +33,6 @@
         .tag-robotics { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
         .tag-ai_hardware { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
         .tag-news { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
-        .icon-focus { background: #f5576c; }
-        .icon-funding { background: #00f2fe; color: #000; }
-        .icon-tech { background: #43e97b; color: #000; }
-        .icon-robotics { background: #fee140; color: #000; }
-        .icon-ai_hardware { background: #fbc2eb; color: #000; }
-        .icon-news { background: #ff9a9e; color: #000; }
     </style>
 </head>
 <body>
@@ -52,7 +46,11 @@
     async function load() {
         try {
             const resp = await fetch('daily-brief.json');
-            const history = await resp.json();
+            let history = await resp.json();
+            
+            // Reverse to show newest first
+            history = history.reverse();
+            
             let html = '';
             for (const day of history) {
                 const items = [];

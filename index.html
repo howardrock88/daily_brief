@@ -10,26 +10,26 @@
         h1 { text-align: center; font-size: 26px; margin-bottom: 8px; color: #f0f6fc; }
         .subtitle { text-align: center; color: #8b949e; margin-bottom: 30px; font-size: 14px; }
         
-        /* 大卡片 - 每天的日报 */
         .day-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; margin-bottom: 20px; overflow: hidden; cursor: pointer; transition: all 0.2s; }
         .day-card:hover { border-color: #58a6ff; }
         
-        /* 大卡片头部 - 默认显示 */
-        .day-card-header { padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .day-card-date { font-size: 18px; font-weight: 600; color: #f0f6fc; display: flex; align-items: center; gap: 10px; }
-        .day-card-count { font-size: 14px; color: #8b949e; background: #21262d; padding: 6px 14px; border-radius: 20px; }
-        .day-card-arrow { font-size: 14px; color: #8b949e; transition: transform 0.3s; }
+        .day-card-header { padding: 18px 20px; }
+        .day-card-date { font-size: 18px; font-weight: 600; color: #f0f6fc; margin-bottom: 12px; }
+        .day-card-arrow { float: right; font-size: 14px; color: #8b949e; transition: transform 0.3s; }
         .day-card.expanded .day-card-arrow { transform: rotate(180deg); }
         
-        /* 大卡片内容 - 默认隐藏 */
-        .day-card-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: #0d1117; }
-        .day-card.expanded .day-card-content { max-height: 2000px; }
+        /* 今日焦点标题预览 */
+        .focus-preview { display: flex; flex-direction: column; gap: 8px; }
+        .focus-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; background: #21262d; border-radius: 8px; }
+        .focus-num { font-size: 12px; font-weight: 600; color: #da3633; min-width: 20px; }
+        .focus-title { font-size: 14px; color: #f0f6fc; line-height: 1.4; flex: 1; }
         
-        /* 小卡片 - 每条新闻 */
+        .day-card-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: #0d1117; }
+        .day-card.expanded .day-card-content { max-height: 3000px; }
+        
         .news-card { margin: 12px 16px; padding: 16px; background: #161b22; border: 1px solid #30363d; border-radius: 8px; }
         .news-card:first-child { margin-top: 16px; }
         .news-card:last-child { margin-bottom: 16px; }
-        .news-card:hover { border-color: #484f58; }
         
         .news-header { display: flex; align-items: center; margin-bottom: 10px; }
         .news-icon { font-size: 16px; margin-right: 8px; }
@@ -52,282 +52,25 @@
 </head>
 <body>
     <h1>🤖 大蒜粒机研所行业早报</h1>
-    <p class="subtitle">每天早上 7:00 自动更新 · 点击卡片查看详情</p>
+    <p class="subtitle">每天早上 7:00 自动更新 · 点击卡片查看完整日报</p>
     <div class="day-card" onclick="toggle(this)">
         <div class="day-card-header">
-            <span class="day-card-date">📅 2026年2月14日</span>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <span class="day-card-count">9 条新闻</span>
-                <span class="day-card-arrow">▼</span>
-            </div>
+            <span class="day-card-date">📅 2026年2月15日 <span class="day-card-arrow">▼</span></span>
         </div>
-        <div class="day-card-content">
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🔥</span>
-                    <span class="news-tag tag-focus">焦点</span>
-                </div>
-                <div class="news-title">OpenAI警告：DeepSeek瞄准ChatGPT及美国AI公司进行模型复制</div>
-                <div class="news-desc">OpenAI向美国会提交备忘录称，中国AI初创公司DeepSeek正针对ChatGPT及美国领先AI公司，试图复制其模型用于自身训练，引发技术安全担忧。</div>
-                <div class="news-source">📰 Reuters · <a href="https://www.reuters.com/technology/artificial-intelligence/openai-warns-chinese-ai-startup-deepseek-targeting-chatgpt-2026-02-13/" target="_blank">原文链接</a></div>
+        <!-- 今日焦点预览 -->
+        <div class="focus-preview" onclick="event.stopPropagation()">
+            <div class="focus-item">
+                <span class="focus-num">1.</span>
+                <span class="focus-title">Google Gemini 全球性故障</span>
             </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🔥</span>
-                    <span class="news-tag tag-focus">焦点</span>
-                </div>
-                <div class="news-title">原力灵机发布DM0具身模型，联合HuggingFace推真机评测基准RoboChallenge</div>
-                <div class="news-desc">前旷视联创唐文斌创立的原力灵机发布2.4B参数具身模型DM0，登顶RoboChallenge榜首。公司成立不到一年累计融资近10亿元。</div>
-                <div class="news-source">📰 36氪 · <a href="https://36kr.com/p/3681608747609988" target="_blank">原文链接</a></div>
+            <div class="focus-item">
+                <span class="focus-num">2.</span>
+                <span class="focus-title">Spotify顶级工程师不再写代码</span>
             </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">💰</span>
-                    <span class="news-tag tag-funding">融资</span>
-                </div>
-                <div class="news-title">五角大楼推动OpenAI、Anthropic向保密网络提供AI工具</div>
-                <div class="news-desc">美国国防部正推动包括OpenAI和Anthropic在内的顶级AI公司，在标准限制较少的情况下向保密网络提供AI工具。</div>
-                <div class="news-source">📰 Reuters · <a href="https://www.reuters.com/technology/pentagon-ai-companies-classified-networks-2026-02-12/" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">💰</span>
-                    <span class="news-tag tag-funding">融资</span>
-                </div>
-                <div class="news-title">软银连续第四季度盈利，OpenAI投资贡献显著</div>
-                <div class="news-desc">软银集团报告连续第四季度盈利，得益于OpenAI投资带来的收益。随着AI投资扩张，公司承担更多债务。</div>
-                <div class="news-source">📰 Reuters · <a href="https://www.reuters.com/business/softbank-group-ai-investments-2026-02-12/" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🧠</span>
-                    <span class="news-tag tag-tech">AI</span>
-                </div>
-                <div class="news-title">字节跳动Seedance 2.0引发好莱坞版权抵制风暴</div>
-                <div class="news-desc">字节2月12日推出AI视频模型Seedance 2.0，生成视频可用率超90%。美国电影协会指责其大规模版权侵权。</div>
-                <div class="news-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880532.html" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🧠</span>
-                    <span class="news-tag tag-tech">AI</span>
-                </div>
-                <div class="news-title">OpenAI正式退役GPT-4o，推向更高定价的GPT-5专用推理模型</div>
-                <div class="news-desc">OpenAI终止GPT-4o访问权限，引导用户转向利润更高的专用推理模型GPT-5。</div>
-                <div class="news-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880486.html" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🧠</span>
-                    <span class="news-tag tag-tech">AI</span>
-                </div>
-                <div class="news-title">AI漫剧制作成本打一折，200亿市场迎剧变</div>
-                <div class="news-desc">字节Seedance 2.0将AI漫剧制作周期从21天压缩至3天，单集成本从2万元降至3000元。</div>
-                <div class="news-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880254.html" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">📋</span>
-                    <span class="news-tag tag-news">动态</span>
-                </div>
-                <div class="news-title">AI担忧引发科技股抛售，纳斯达克重挫2%</div>
-                <div class="news-desc">投资者加剧科技股抛售，担忧AI技术对商业世界的颠覆。纳斯达克指数大幅下跌。</div>
-                <div class="news-source">📰 Reuters · <a href="https://www.reuters.com/markets/ai-concerns-trigger-tech-selloff-nasdaq-2026-02-13/" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">📋</span>
-                    <span class="news-tag tag-news">动态</span>
-                </div>
-                <div class="news-title">美国FDA收AI医疗设备故障报告</div>
-                <div class="news-desc">FDA在AI添加到慢性鼻窦炎治疗医疗设备后，收到至少100起故障和不良事件报告。</div>
-                <div class="news-source">📰 Reuters · <a href="https://www.reuters.com/healthcare-fda-ai-medical-device-2026-02-09/" target="_blank">原文链接</a></div>
-            </div>
+            <div style="padding: 8px 12px; color: #8b949e; font-size: 13px;">共 14 条新闻，点击查看完整日报</div>
         </div>
-    </div>
-    <div class="day-card" onclick="toggle(this)">
-        <div class="day-card-header">
-            <span class="day-card-date">📅 2026年2月13日</span>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <span class="day-card-count">12 条新闻</span>
-                <span class="day-card-arrow">▼</span>
-            </div>
-        </div>
-        <div class="day-card-content">
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🔥</span>
-                    <span class="news-tag tag-focus">焦点</span>
-                </div>
-                <div class="news-title">OpenAI、Anthropic、Google罕见联手，共同推出AI创业加速器</div>
-                <div class="news-desc">三大AI巨头宣布共同推出F/ai创业加速器项目，Meta、Microsoft和Sequoia也参与其中。</div>
-                <div class="news-source">📰 Inc · <a href="https://www.inc.com" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🔥</span>
-                    <span class="news-tag tag-focus">焦点</span>
-                </div>
-                <div class="news-title">Anthropic估值达3800亿美元</div>
-                <div class="news-desc">Anthropic估值跃升至3800亿美元，进一步缩小与OpenAI的差距。</div>
-                <div class="news-source">📰 Click · <a href="on Detroit https://www.clickondetroit.com" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">💰</span>
-                    <span class="news-tag tag-funding">融资</span>
-                </div>
-                <div class="news-title">临界点获数亿元融资</div>
-                <div class="news-desc">灵巧手公司临界点完成新一轮数亿元融资。</div>
-                <div class="news-source">📰 36氪 · <a href="https://36kr.com/p/3678179258425990" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">💰</span>
-                    <span class="news-tag tag-funding">融资</span>
-                </div>
-                <div class="news-title">Onconetix收购Realbotix</div>
-                <div class="news-desc">2月12日，Onconetix宣布收购美国AI人形机器人公司Realbotix。</div>
-                <div class="news-source">📰 Stock · <a href="Titan https://www.stocktitan.net/news/ai.html" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">💰</span>
-                    <span class="news-tag tag-funding">融资</span>
-                </div>
-                <div class="news-title">星际光年完成Pre-A轮融资</div>
-                <div class="news-desc">构建具身智能落地物理世界'最后一厘米'。</div>
-                <div class="news-source">📰 36氪 · <a href="https://36kr.com/p/3519660933962629" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🧠</span>
-                    <span class="news-tag tag-tech">AI</span>
-                </div>
-                <div class="news-title">Google和奔驰联手支持Apollo人形机器人</div>
-                <div class="news-desc">Google DeepMind与Apptronik合作，将先进AI技术应用于Apollo人形机器人。</div>
-                <div class="news-source">📰 Interesting · <a href="Engineering https://www.interestingengineering.com" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🧠</span>
-                    <span class="news-tag tag-tech">AI</span>
-                </div>
-                <div class="news-title">嵩山少林寺机器人表演功夫</div>
-                <div class="news-desc">人形机器人在嵩山少林寺表演功夫。</div>
-                <div class="news-source">📰 Times · <a href="of India https://timesofindia.indiatimes.com" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🧠</span>
-                    <span class="news-tag tag-tech">AI</span>
-                </div>
-                <div class="news-title">埃斯顿酷卓发布第二代人形机器人Codroid 02</div>
-                <div class="news-desc">Codroid 02身高170cm，体重70kg，单臂负载5公斤，全身31个自由度。</div>
-                <div class="news-source">📰 哔哩哔哩 · <a href="https://www.bilibili.com" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">📋</span>
-                    <span class="news-tag tag-news">动态</span>
-                </div>
-                <div class="news-title">比尔·盖茨时隔两年半再度访华</div>
-                <div class="news-desc">2月11日，比尔·盖茨现身上海张江。</div>
-                <div class="news-source">📰 IT之家 · <a href="https://www.ithome.com" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">📋</span>
-                    <span class="news-tag tag-news">动态</span>
-                </div>
-                <div class="news-title">荣耀前CEO赵明将加入千里科技董事会</div>
-                <div class="news-desc">赵明将任千里科技联席董事长。</div>
-                <div class="news-source">📰 虎嗅 · <a href="https://www.huxiu.com" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">📋</span>
-                    <span class="news-tag tag-news">动态</span>
-                </div>
-                <div class="news-title">Anthropic向AI监管组织捐赠2000万美元</div>
-                <div class="news-desc">用于2026年选举前的AI监管倡导。</div>
-                <div class="news-source">📰 CNBC · <a href="https://www.cnbc.com" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">📋</span>
-                    <span class="news-tag tag-news">动态</span>
-                </div>
-                <div class="news-title">18家中国公司亮相CES，展示消费级AI机器人</div>
-                <div class="news-desc">从仿生宠物、情绪机器人到教育陪伴机器人。</div>
-                <div class="news-source">📰 36氪 · <a href="https://36kr.com" target="_blank">原文链接</a></div>
-            </div>
-        </div>
-    </div>
-    <div class="day-card" onclick="toggle(this)">
-        <div class="day-card-header">
-            <span class="day-card-date">📅 2026年2月12日</span>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <span class="day-card-count">5 条新闻</span>
-                <span class="day-card-arrow">▼</span>
-            </div>
-        </div>
-        <div class="day-card-content">
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🔥</span>
-                    <span class="news-tag tag-focus">焦点</span>
-                </div>
-                <div class="news-title">Meta投资100亿美元建设AI数据中心</div>
-                <div class="news-desc">Meta在印第安纳州开始建设约100亿美元的数据中心。</div>
-                <div class="news-source">📰 Tech · <a href="Startups https://techstartups.com" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🔥</span>
-                    <span class="news-tag tag-focus">焦点</span>
-                </div>
-                <div class="news-title">具身智能赛道融资激增217%</div>
-                <div class="news-desc">2025年具身智能赛道融资金额从95.25亿元扩大至405.99亿元。</div>
-                <div class="news-source">📰 虎嗅 · <a href="https://www.huxiu.com" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">💰</span>
-                    <span class="news-tag tag-funding">融资</span>
-                </div>
-                <div class="news-title">Seyond上市后业绩增长</div>
-                <div class="news-desc">Seyond在港交所上市后实现显著同比增长。</div>
-                <div class="news-source">📰 Markets · <a href="Insider https://markets.businessinsider.com" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">🧠</span>
-                    <span class="news-tag tag-tech">AI</span>
-                </div>
-                <div class="news-title">原力无限发布小原子机器人</div>
-                <div class="news-desc">48小时内预定突破百台。</div>
-                <div class="news-source">📰 36氪 · <a href="https://36kr.com" target="_blank">原文链接</a></div>
-            </div>
-            <div class="news-card">
-                <div class="news-header">
-                    <span class="news-icon">📋</span>
-                    <span class="news-tag tag-news">动态</span>
-                </div>
-                <div class="news-title">宇树科技完成新一轮融资</div>
-                <div class="news-desc">宇树科技完成新一轮融资，估值大幅提升。</div>
-                <div class="news-source">📰 36氪 · <a href="https://36kr.com" target="_blank">原文链接</a></div>
-            </div>
-        </div>
-    </div>
-    <div class="day-card" onclick="toggle(this)">
-        <div class="day-card-header">
-            <span class="day-card-date">📅 2026年2月15日</span>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <span class="day-card-count">14 条新闻</span>
-                <span class="day-card-arrow">▼</span>
-            </div>
-        </div>
+        
+        <!-- 完整内容 -->
         <div class="day-card-content">
             <div class="news-card">
                 <div class="news-header">
@@ -454,6 +197,303 @@
                 <div class="news-title">智谱GLM-5适配华为昇腾芯片</div>
                 <div class="news-desc">智谱GLM-5深度适配华为昇腾等国产芯片，国产大模型与国产算力深度融合。</div>
                 <div class="news-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880242.html" target="_blank">原文链接</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="day-card" onclick="toggle(this)">
+        <div class="day-card-header">
+            <span class="day-card-date">📅 2026年2月12日 <span class="day-card-arrow">▼</span></span>
+        </div>
+        <!-- 今日焦点预览 -->
+        <div class="focus-preview" onclick="event.stopPropagation()">
+            <div class="focus-item">
+                <span class="focus-num">1.</span>
+                <span class="focus-title">Meta投资100亿美元建设AI数据中心</span>
+            </div>
+            <div class="focus-item">
+                <span class="focus-num">2.</span>
+                <span class="focus-title">具身智能赛道融资激增217%</span>
+            </div>
+            <div style="padding: 8px 12px; color: #8b949e; font-size: 13px;">共 5 条新闻，点击查看完整日报</div>
+        </div>
+        
+        <!-- 完整内容 -->
+        <div class="day-card-content">
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🔥</span>
+                    <span class="news-tag tag-focus">焦点</span>
+                </div>
+                <div class="news-title">Meta投资100亿美元建设AI数据中心</div>
+                <div class="news-desc">Meta在印第安纳州开始建设约100亿美元的数据中心。</div>
+                <div class="news-source">📰 Tech · <a href="Startups https://techstartups.com" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🔥</span>
+                    <span class="news-tag tag-focus">焦点</span>
+                </div>
+                <div class="news-title">具身智能赛道融资激增217%</div>
+                <div class="news-desc">2025年具身智能赛道融资金额从95.25亿元扩大至405.99亿元。</div>
+                <div class="news-source">📰 虎嗅 · <a href="https://www.huxiu.com" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">💰</span>
+                    <span class="news-tag tag-funding">融资</span>
+                </div>
+                <div class="news-title">Seyond上市后业绩增长</div>
+                <div class="news-desc">Seyond在港交所上市后实现显著同比增长。</div>
+                <div class="news-source">📰 Markets · <a href="Insider https://markets.businessinsider.com" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🧠</span>
+                    <span class="news-tag tag-tech">AI</span>
+                </div>
+                <div class="news-title">原力无限发布小原子机器人</div>
+                <div class="news-desc">48小时内预定突破百台。</div>
+                <div class="news-source">📰 36氪 · <a href="https://36kr.com" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">📋</span>
+                    <span class="news-tag tag-news">动态</span>
+                </div>
+                <div class="news-title">宇树科技完成新一轮融资</div>
+                <div class="news-desc">宇树科技完成新一轮融资，估值大幅提升。</div>
+                <div class="news-source">📰 36氪 · <a href="https://36kr.com" target="_blank">原文链接</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="day-card" onclick="toggle(this)">
+        <div class="day-card-header">
+            <span class="day-card-date">📅 2026年2月13日 <span class="day-card-arrow">▼</span></span>
+        </div>
+        <!-- 今日焦点预览 -->
+        <div class="focus-preview" onclick="event.stopPropagation()">
+            <div class="focus-item">
+                <span class="focus-num">1.</span>
+                <span class="focus-title">OpenAI、Anthropic、Google罕见联手，共同推出AI创业加速器</span>
+            </div>
+            <div class="focus-item">
+                <span class="focus-num">2.</span>
+                <span class="focus-title">Anthropic估值达3800亿美元</span>
+            </div>
+            <div style="padding: 8px 12px; color: #8b949e; font-size: 13px;">共 12 条新闻，点击查看完整日报</div>
+        </div>
+        
+        <!-- 完整内容 -->
+        <div class="day-card-content">
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🔥</span>
+                    <span class="news-tag tag-focus">焦点</span>
+                </div>
+                <div class="news-title">OpenAI、Anthropic、Google罕见联手，共同推出AI创业加速器</div>
+                <div class="news-desc">三大AI巨头宣布共同推出F/ai创业加速器项目，Meta、Microsoft和Sequoia也参与其中。</div>
+                <div class="news-source">📰 Inc · <a href="https://www.inc.com" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🔥</span>
+                    <span class="news-tag tag-focus">焦点</span>
+                </div>
+                <div class="news-title">Anthropic估值达3800亿美元</div>
+                <div class="news-desc">Anthropic估值跃升至3800亿美元，进一步缩小与OpenAI的差距。</div>
+                <div class="news-source">📰 Click · <a href="on Detroit https://www.clickondetroit.com" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">💰</span>
+                    <span class="news-tag tag-funding">融资</span>
+                </div>
+                <div class="news-title">临界点获数亿元融资</div>
+                <div class="news-desc">灵巧手公司临界点完成新一轮数亿元融资。</div>
+                <div class="news-source">📰 36氪 · <a href="https://36kr.com/p/3678179258425990" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">💰</span>
+                    <span class="news-tag tag-funding">融资</span>
+                </div>
+                <div class="news-title">Onconetix收购Realbotix</div>
+                <div class="news-desc">2月12日，Onconetix宣布收购美国AI人形机器人公司Realbotix。</div>
+                <div class="news-source">📰 Stock · <a href="Titan https://www.stocktitan.net/news/ai.html" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">💰</span>
+                    <span class="news-tag tag-funding">融资</span>
+                </div>
+                <div class="news-title">星际光年完成Pre-A轮融资</div>
+                <div class="news-desc">构建具身智能落地物理世界'最后一厘米'。</div>
+                <div class="news-source">📰 36氪 · <a href="https://36kr.com/p/3519660933962629" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🧠</span>
+                    <span class="news-tag tag-tech">AI</span>
+                </div>
+                <div class="news-title">Google和奔驰联手支持Apollo人形机器人</div>
+                <div class="news-desc">Google DeepMind与Apptronik合作，将先进AI技术应用于Apollo人形机器人。</div>
+                <div class="news-source">📰 Interesting · <a href="Engineering https://www.interestingengineering.com" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🧠</span>
+                    <span class="news-tag tag-tech">AI</span>
+                </div>
+                <div class="news-title">嵩山少林寺机器人表演功夫</div>
+                <div class="news-desc">人形机器人在嵩山少林寺表演功夫。</div>
+                <div class="news-source">📰 Times · <a href="of India https://timesofindia.indiatimes.com" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🧠</span>
+                    <span class="news-tag tag-tech">AI</span>
+                </div>
+                <div class="news-title">埃斯顿酷卓发布第二代人形机器人Codroid 02</div>
+                <div class="news-desc">Codroid 02身高170cm，体重70kg，单臂负载5公斤，全身31个自由度。</div>
+                <div class="news-source">📰 哔哩哔哩 · <a href="https://www.bilibili.com" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">📋</span>
+                    <span class="news-tag tag-news">动态</span>
+                </div>
+                <div class="news-title">比尔·盖茨时隔两年半再度访华</div>
+                <div class="news-desc">2月11日，比尔·盖茨现身上海张江。</div>
+                <div class="news-source">📰 IT之家 · <a href="https://www.ithome.com" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">📋</span>
+                    <span class="news-tag tag-news">动态</span>
+                </div>
+                <div class="news-title">荣耀前CEO赵明将加入千里科技董事会</div>
+                <div class="news-desc">赵明将任千里科技联席董事长。</div>
+                <div class="news-source">📰 虎嗅 · <a href="https://www.huxiu.com" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">📋</span>
+                    <span class="news-tag tag-news">动态</span>
+                </div>
+                <div class="news-title">Anthropic向AI监管组织捐赠2000万美元</div>
+                <div class="news-desc">用于2026年选举前的AI监管倡导。</div>
+                <div class="news-source">📰 CNBC · <a href="https://www.cnbc.com" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">📋</span>
+                    <span class="news-tag tag-news">动态</span>
+                </div>
+                <div class="news-title">18家中国公司亮相CES，展示消费级AI机器人</div>
+                <div class="news-desc">从仿生宠物、情绪机器人到教育陪伴机器人。</div>
+                <div class="news-source">📰 36氪 · <a href="https://36kr.com" target="_blank">原文链接</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="day-card" onclick="toggle(this)">
+        <div class="day-card-header">
+            <span class="day-card-date">📅 2026年2月14日 <span class="day-card-arrow">▼</span></span>
+        </div>
+        <!-- 今日焦点预览 -->
+        <div class="focus-preview" onclick="event.stopPropagation()">
+            <div class="focus-item">
+                <span class="focus-num">1.</span>
+                <span class="focus-title">OpenAI警告：DeepSeek瞄准ChatGPT及美国AI公司进行模型复制</span>
+            </div>
+            <div class="focus-item">
+                <span class="focus-num">2.</span>
+                <span class="focus-title">原力灵机发布DM0具身模型，联合HuggingFace推真机评测基准RoboChallenge</span>
+            </div>
+            <div style="padding: 8px 12px; color: #8b949e; font-size: 13px;">共 9 条新闻，点击查看完整日报</div>
+        </div>
+        
+        <!-- 完整内容 -->
+        <div class="day-card-content">
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🔥</span>
+                    <span class="news-tag tag-focus">焦点</span>
+                </div>
+                <div class="news-title">OpenAI警告：DeepSeek瞄准ChatGPT及美国AI公司进行模型复制</div>
+                <div class="news-desc">OpenAI向美国会提交备忘录称，中国AI初创公司DeepSeek正针对ChatGPT及美国领先AI公司，试图复制其模型用于自身训练，引发技术安全担忧。</div>
+                <div class="news-source">📰 Reuters · <a href="https://www.reuters.com/technology/artificial-intelligence/openai-warns-chinese-ai-startup-deepseek-targeting-chatgpt-2026-02-13/" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🔥</span>
+                    <span class="news-tag tag-focus">焦点</span>
+                </div>
+                <div class="news-title">原力灵机发布DM0具身模型，联合HuggingFace推真机评测基准RoboChallenge</div>
+                <div class="news-desc">前旷视联创唐文斌创立的原力灵机发布2.4B参数具身模型DM0，登顶RoboChallenge榜首。公司成立不到一年累计融资近10亿元。</div>
+                <div class="news-source">📰 36氪 · <a href="https://36kr.com/p/3681608747609988" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">💰</span>
+                    <span class="news-tag tag-funding">融资</span>
+                </div>
+                <div class="news-title">五角大楼推动OpenAI、Anthropic向保密网络提供AI工具</div>
+                <div class="news-desc">美国国防部正推动包括OpenAI和Anthropic在内的顶级AI公司，在标准限制较少的情况下向保密网络提供AI工具。</div>
+                <div class="news-source">📰 Reuters · <a href="https://www.reuters.com/technology/pentagon-ai-companies-classified-networks-2026-02-12/" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">💰</span>
+                    <span class="news-tag tag-funding">融资</span>
+                </div>
+                <div class="news-title">软银连续第四季度盈利，OpenAI投资贡献显著</div>
+                <div class="news-desc">软银集团报告连续第四季度盈利，得益于OpenAI投资带来的收益。随着AI投资扩张，公司承担更多债务。</div>
+                <div class="news-source">📰 Reuters · <a href="https://www.reuters.com/business/softbank-group-ai-investments-2026-02-12/" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🧠</span>
+                    <span class="news-tag tag-tech">AI</span>
+                </div>
+                <div class="news-title">字节跳动Seedance 2.0引发好莱坞版权抵制风暴</div>
+                <div class="news-desc">字节2月12日推出AI视频模型Seedance 2.0，生成视频可用率超90%。美国电影协会指责其大规模版权侵权。</div>
+                <div class="news-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880532.html" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🧠</span>
+                    <span class="news-tag tag-tech">AI</span>
+                </div>
+                <div class="news-title">OpenAI正式退役GPT-4o，推向更高定价的GPT-5专用推理模型</div>
+                <div class="news-desc">OpenAI终止GPT-4o访问权限，引导用户转向利润更高的专用推理模型GPT-5。</div>
+                <div class="news-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880486.html" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">🧠</span>
+                    <span class="news-tag tag-tech">AI</span>
+                </div>
+                <div class="news-title">AI漫剧制作成本打一折，200亿市场迎剧变</div>
+                <div class="news-desc">字节Seedance 2.0将AI漫剧制作周期从21天压缩至3天，单集成本从2万元降至3000元。</div>
+                <div class="news-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880254.html" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">📋</span>
+                    <span class="news-tag tag-news">动态</span>
+                </div>
+                <div class="news-title">AI担忧引发科技股抛售，纳斯达克重挫2%</div>
+                <div class="news-desc">投资者加剧科技股抛售，担忧AI技术对商业世界的颠覆。纳斯达克指数大幅下跌。</div>
+                <div class="news-source">📰 Reuters · <a href="https://www.reuters.com/markets/ai-concerns-trigger-tech-selloff-nasdaq-2026-02-13/" target="_blank">原文链接</a></div>
+            </div>
+            <div class="news-card">
+                <div class="news-header">
+                    <span class="news-icon">📋</span>
+                    <span class="news-tag tag-news">动态</span>
+                </div>
+                <div class="news-title">美国FDA收AI医疗设备故障报告</div>
+                <div class="news-desc">FDA在AI添加到慢性鼻窦炎治疗医疗设备后，收到至少100起故障和不良事件报告。</div>
+                <div class="news-source">📰 Reuters · <a href="https://www.reuters.com/healthcare-fda-ai-medical-device-2026-02-09/" target="_blank">原文链接</a></div>
             </div>
         </div>
     </div>

@@ -13,24 +13,26 @@
         .day-header { background: linear-gradient(135deg, #238636 0%, #2ea043 100%); padding: 12px 18px; border-radius: 8px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
         .day-header h2 { font-size: 16px; color: #fff; font-weight: 600; }
         .day-header .stats { font-size: 13px; color: rgba(255,255,255,0.8); }
-        .cards { display: flex; flex-wrap: wrap; gap: 12px; }
-        .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; flex: 1 1 280px; max-width: 420px; }
+        .cards { display: flex; flex-direction: column; gap: 8px; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; overflow: hidden; cursor: pointer; transition: all 0.2s; }
         .card:hover { border-color: #58a6ff; background: #1c2128; }
-        .card-top { display: flex; align-items: center; margin-bottom: 10px; }
-        .card-icon { font-size: 16px; margin-right: 8px; }
-        .section-tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; background: #21262d; color: #c9d1d9; }
+        .card-header { padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
+        .card-icon { font-size: 18px; margin-right: 10px; }
+        .card-title { font-size: 15px; font-weight: 600; color: #f0f6fc; flex: 1; }
+        .card-tag { font-size: 11px; padding: 3px 10px; border-radius: 20px; background: #21262d; color: #c9d1d9; margin-left: 10px; }
         .tag-focus { background: #da3633; color: #fff; }
         .tag-funding { background: #1f6feb; color: #fff; }
         .tag-tech { background: #238636; color: #fff; }
         .tag-robotics { background: #a371f7; color: #fff; }
         .tag-ai_hardware { background: #d29922; color: #fff; }
         .tag-news { background: #6e7681; color: #fff; }
-        .card-title { font-size: 15px; font-weight: 600; color: #f0f6fc; line-height: 1.4; margin-bottom: 8px; }
-        .card-desc { font-size: 13px; color: #8b949e; line-height: 1.6; margin-bottom: 10px; }
+        .card-expand { padding: 0 16px; max-height: 0; overflow: hidden; transition: all 0.3s ease; background: #21262d; }
+        .card.expanded .card-expand { padding: 12px 16px; max-height: 300px; }
+        .card-desc { font-size: 14px; color: #8b949e; line-height: 1.6; margin-bottom: 10px; }
         .card-source { font-size: 12px; color: #58a6ff; }
         .card-source a { color: #58a6ff; text-decoration: none; }
         .card-source a:hover { text-decoration: underline; }
-        .divider { height: 1px; background: #30363d; margin: 15px 0; }
+        .expand-hint { font-size: 12px; color: #6e7681; margin-left: 8px; }
     </style>
 </head>
 <body>
@@ -42,86 +44,113 @@
             <span class="stats">9 条</span>
         </div>
         <div class="cards">
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🔥</span>
-                    <span class="section-tag tag-focus">焦点</span>
+                    <span class="card-title">OpenAI警告：DeepSeek瞄准ChatGPT及美国AI公司进行模型复制</span>
+                    <span class="card-tag tag-focus">焦点</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">OpenAI警告：DeepSeek瞄准ChatGPT及美国AI公司进行模型复制</div>
-                <div class="card-desc">OpenAI向美国会提交备忘录称，中国AI初创公司DeepSeek正针对ChatGPT及美国领先AI公司，试图复制其模型用于自身训练，引发技术安全担忧。</div>
-                <div class="card-source">📰 Reuters · <a href="https://www.reuters.com/technology/artificial-intelligence/openai-warns-chinese-ai-startup-deepseek-targeting-chatgpt-2026-02-13/" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">OpenAI向美国会提交备忘录称，中国AI初创公司DeepSeek正针对ChatGPT及美国领先AI公司，试图复制其模型用于自身训练，引发技术安全担忧。</div>
+                    <div class="card-source">📰 Reuters · <a href="https://www.reuters.com/technology/artificial-intelligence/openai-warns-chinese-ai-startup-deepseek-targeting-chatgpt-2026-02-13/" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🔥</span>
-                    <span class="section-tag tag-focus">焦点</span>
+                    <span class="card-title">原力灵机发布DM0具身模型，联合HuggingFace推真机评测基准RoboChallenge</span>
+                    <span class="card-tag tag-focus">焦点</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">原力灵机发布DM0具身模型，联合HuggingFace推真机评测基准RoboChallenge</div>
-                <div class="card-desc">前旷视联创唐文斌创立的原力灵机发布2.4B参数具身模型DM0，登顶RoboChallenge榜首。公司成立不到一年累计融资近10亿元。</div>
-                <div class="card-source">📰 36氪 · <a href="https://36kr.com/p/3681608747609988" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">前旷视联创唐文斌创立的原力灵机发布2.4B参数具身模型DM0，登顶RoboChallenge榜首。公司成立不到一年累计融资近10亿元。</div>
+                    <div class="card-source">📰 36氪 · <a href="https://36kr.com/p/3681608747609988" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">💰</span>
-                    <span class="section-tag tag-funding">融资</span>
+                    <span class="card-title">五角大楼推动OpenAI、Anthropic向保密网络提供AI工具</span>
+                    <span class="card-tag tag-funding">融资</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">五角大楼推动OpenAI、Anthropic向保密网络提供AI工具</div>
-                <div class="card-desc">美国国防部正推动包括OpenAI和Anthropic在内的顶级AI公司，在标准限制较少的情况下向保密网络提供AI工具。</div>
-                <div class="card-source">📰 Reuters · <a href="https://www.reuters.com/technology/pentagon-ai-companies-classified-networks-2026-02-12/" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">美国国防部正推动包括OpenAI和Anthropic在内的顶级AI公司，在标准限制较少的情况下向保密网络提供AI工具。</div>
+                    <div class="card-source">📰 Reuters · <a href="https://www.reuters.com/technology/pentagon-ai-companies-classified-networks-2026-02-12/" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">💰</span>
-                    <span class="section-tag tag-funding">融资</span>
+                    <span class="card-title">软银连续第四季度盈利，OpenAI投资贡献显著</span>
+                    <span class="card-tag tag-funding">融资</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">软银连续第四季度盈利，OpenAI投资贡献显著</div>
-                <div class="card-desc">软银集团报告连续第四季度盈利，得益于OpenAI投资带来的收益。随着AI投资扩张，公司承担更多债务。</div>
-                <div class="card-source">📰 Reuters · <a href="https://www.reuters.com/business/softbank-group-ai-investments-2026-02-12/" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">软银集团报告连续第四季度盈利，得益于OpenAI投资带来的收益。随着AI投资扩张，公司承担更多债务。</div>
+                    <div class="card-source">📰 Reuters · <a href="https://www.reuters.com/business/softbank-group-ai-investments-2026-02-12/" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🧠</span>
-                    <span class="section-tag tag-tech">AI</span>
+                    <span class="card-title">字节跳动Seedance 2.0引发好莱坞版权抵制风暴</span>
+                    <span class="card-tag tag-tech">AI</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">字节跳动Seedance 2.0引发好莱坞版权抵制风暴</div>
-                <div class="card-desc">字节2月12日推出AI视频模型Seedance 2.0，生成视频可用率超90%。美国电影协会指责其大规模版权侵权。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880532.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">字节2月12日推出AI视频模型Seedance 2.0，生成视频可用率超90%。美国电影协会指责其大规模版权侵权。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880532.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🧠</span>
-                    <span class="section-tag tag-tech">AI</span>
+                    <span class="card-title">OpenAI正式退役GPT-4o，推向更高定价的GPT-5专用推理模型</span>
+                    <span class="card-tag tag-tech">AI</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">OpenAI正式退役GPT-4o，推向更高定价的GPT-5专用推理模型</div>
-                <div class="card-desc">OpenAI终止GPT-4o访问权限，引导用户转向利润更高的专用推理模型GPT-5。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880486.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">OpenAI终止GPT-4o访问权限，引导用户转向利润更高的专用推理模型GPT-5。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880486.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🧠</span>
-                    <span class="section-tag tag-tech">AI</span>
+                    <span class="card-title">AI漫剧制作成本打一折，200亿市场迎剧变</span>
+                    <span class="card-tag tag-tech">AI</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">AI漫剧制作成本打一折，200亿市场迎剧变</div>
-                <div class="card-desc">字节Seedance 2.0将AI漫剧制作周期从21天压缩至3天，单集成本从2万元降至3000元。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880254.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">字节Seedance 2.0将AI漫剧制作周期从21天压缩至3天，单集成本从2万元降至3000元。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880254.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">📋</span>
-                    <span class="section-tag tag-news">动态</span>
+                    <span class="card-title">AI担忧引发科技股抛售，纳斯达克重挫2%</span>
+                    <span class="card-tag tag-news">动态</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">AI担忧引发科技股抛售，纳斯达克重挫2%</div>
-                <div class="card-desc">投资者加剧科技股抛售，担忧AI技术对商业世界的颠覆。纳斯达克指数大幅下跌。</div>
-                <div class="card-source">📰 Reuters · <a href="https://www.reuters.com/markets/ai-concerns-trigger-tech-selloff-nasdaq-2026-02-13/" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">投资者加剧科技股抛售，担忧AI技术对商业世界的颠覆。纳斯达克指数大幅下跌。</div>
+                    <div class="card-source">📰 Reuters · <a href="https://www.reuters.com/markets/ai-concerns-trigger-tech-selloff-nasdaq-2026-02-13/" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">📋</span>
-                    <span class="section-tag tag-news">动态</span>
+                    <span class="card-title">美国FDA收AI医疗设备故障报告</span>
+                    <span class="card-tag tag-news">动态</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">美国FDA收AI医疗设备故障报告</div>
-                <div class="card-desc">FDA在AI添加到慢性鼻窦炎治疗医疗设备后，收到至少100起故障和不良事件报告。</div>
-                <div class="card-source">📰 Reuters · <a href="https://www.reuters.com/healthcare-fda-ai-medical-device-2026-02-09/" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">FDA在AI添加到慢性鼻窦炎治疗医疗设备后，收到至少100起故障和不良事件报告。</div>
+                    <div class="card-source">📰 Reuters · <a href="https://www.reuters.com/healthcare-fda-ai-medical-device-2026-02-09/" target="_blank">原文链接</a></div>
+                </div>
             </div>
         </div>
     </div>
@@ -131,113 +160,149 @@
             <span class="stats">12 条</span>
         </div>
         <div class="cards">
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🔥</span>
-                    <span class="section-tag tag-focus">焦点</span>
+                    <span class="card-title">OpenAI、Anthropic、Google罕见联手，共同推出AI创业加速器</span>
+                    <span class="card-tag tag-focus">焦点</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">OpenAI、Anthropic、Google罕见联手，共同推出AI创业加速器</div>
-                <div class="card-desc">三大AI巨头宣布共同推出F/ai创业加速器项目，Meta、Microsoft和Sequoia也参与其中。</div>
-                <div class="card-source">📰 Inc · <a href="https://www.inc.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">三大AI巨头宣布共同推出F/ai创业加速器项目，Meta、Microsoft和Sequoia也参与其中。</div>
+                    <div class="card-source">📰 Inc · <a href="https://www.inc.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🔥</span>
-                    <span class="section-tag tag-focus">焦点</span>
+                    <span class="card-title">Anthropic估值达3800亿美元</span>
+                    <span class="card-tag tag-focus">焦点</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">Anthropic估值达3800亿美元</div>
-                <div class="card-desc">Anthropic估值跃升至3800亿美元，进一步缩小与OpenAI的差距。</div>
-                <div class="card-source">📰 Click · <a href="on Detroit https://www.clickondetroit.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">Anthropic估值跃升至3800亿美元，进一步缩小与OpenAI的差距。</div>
+                    <div class="card-source">📰 Click · <a href="on Detroit https://www.clickondetroit.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">💰</span>
-                    <span class="section-tag tag-funding">融资</span>
+                    <span class="card-title">临界点获数亿元融资</span>
+                    <span class="card-tag tag-funding">融资</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">临界点获数亿元融资</div>
-                <div class="card-desc">灵巧手公司临界点完成新一轮数亿元融资。</div>
-                <div class="card-source">📰 36氪 · <a href="https://36kr.com/p/3678179258425990" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">灵巧手公司临界点完成新一轮数亿元融资。</div>
+                    <div class="card-source">📰 36氪 · <a href="https://36kr.com/p/3678179258425990" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">💰</span>
-                    <span class="section-tag tag-funding">融资</span>
+                    <span class="card-title">Onconetix收购Realbotix</span>
+                    <span class="card-tag tag-funding">融资</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">Onconetix收购Realbotix</div>
-                <div class="card-desc">2月12日，Onconetix宣布收购美国AI人形机器人公司Realbotix。</div>
-                <div class="card-source">📰 Stock · <a href="Titan https://www.stocktitan.net/news/ai.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">2月12日，Onconetix宣布收购美国AI人形机器人公司Realbotix。</div>
+                    <div class="card-source">📰 Stock · <a href="Titan https://www.stocktitan.net/news/ai.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">💰</span>
-                    <span class="section-tag tag-funding">融资</span>
+                    <span class="card-title">星际光年完成Pre-A轮融资</span>
+                    <span class="card-tag tag-funding">融资</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">星际光年完成Pre-A轮融资</div>
-                <div class="card-desc">构建具身智能落地物理世界'最后一厘米'。</div>
-                <div class="card-source">📰 36氪 · <a href="https://36kr.com/p/3519660933962629" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">构建具身智能落地物理世界'最后一厘米'。</div>
+                    <div class="card-source">📰 36氪 · <a href="https://36kr.com/p/3519660933962629" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🧠</span>
-                    <span class="section-tag tag-tech">AI</span>
+                    <span class="card-title">Google和奔驰联手支持Apollo人形机器人</span>
+                    <span class="card-tag tag-tech">AI</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">Google和奔驰联手支持Apollo人形机器人</div>
-                <div class="card-desc">Google DeepMind与Apptronik合作，将先进AI技术应用于Apollo人形机器人。</div>
-                <div class="card-source">📰 Interesting · <a href="Engineering https://www.interestingengineering.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">Google DeepMind与Apptronik合作，将先进AI技术应用于Apollo人形机器人。</div>
+                    <div class="card-source">📰 Interesting · <a href="Engineering https://www.interestingengineering.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🧠</span>
-                    <span class="section-tag tag-tech">AI</span>
+                    <span class="card-title">嵩山少林寺机器人表演功夫</span>
+                    <span class="card-tag tag-tech">AI</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">嵩山少林寺机器人表演功夫</div>
-                <div class="card-desc">人形机器人在嵩山少林寺表演功夫。</div>
-                <div class="card-source">📰 Times · <a href="of India https://timesofindia.indiatimes.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">人形机器人在嵩山少林寺表演功夫。</div>
+                    <div class="card-source">📰 Times · <a href="of India https://timesofindia.indiatimes.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🧠</span>
-                    <span class="section-tag tag-tech">AI</span>
+                    <span class="card-title">埃斯顿酷卓发布第二代人形机器人Codroid 02</span>
+                    <span class="card-tag tag-tech">AI</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">埃斯顿酷卓发布第二代人形机器人Codroid 02</div>
-                <div class="card-desc">Codroid 02身高170cm，体重70kg，单臂负载5公斤，全身31个自由度。</div>
-                <div class="card-source">📰 哔哩哔哩 · <a href="https://www.bilibili.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">Codroid 02身高170cm，体重70kg，单臂负载5公斤，全身31个自由度。</div>
+                    <div class="card-source">📰 哔哩哔哩 · <a href="https://www.bilibili.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">📋</span>
-                    <span class="section-tag tag-news">动态</span>
+                    <span class="card-title">比尔·盖茨时隔两年半再度访华</span>
+                    <span class="card-tag tag-news">动态</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">比尔·盖茨时隔两年半再度访华</div>
-                <div class="card-desc">2月11日，比尔·盖茨现身上海张江。</div>
-                <div class="card-source">📰 IT之家 · <a href="https://www.ithome.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">2月11日，比尔·盖茨现身上海张江。</div>
+                    <div class="card-source">📰 IT之家 · <a href="https://www.ithome.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">📋</span>
-                    <span class="section-tag tag-news">动态</span>
+                    <span class="card-title">荣耀前CEO赵明将加入千里科技董事会</span>
+                    <span class="card-tag tag-news">动态</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">荣耀前CEO赵明将加入千里科技董事会</div>
-                <div class="card-desc">赵明将任千里科技联席董事长。</div>
-                <div class="card-source">📰 虎嗅 · <a href="https://www.huxiu.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">赵明将任千里科技联席董事长。</div>
+                    <div class="card-source">📰 虎嗅 · <a href="https://www.huxiu.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">📋</span>
-                    <span class="section-tag tag-news">动态</span>
+                    <span class="card-title">Anthropic向AI监管组织捐赠2000万美元</span>
+                    <span class="card-tag tag-news">动态</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">Anthropic向AI监管组织捐赠2000万美元</div>
-                <div class="card-desc">用于2026年选举前的AI监管倡导。</div>
-                <div class="card-source">📰 CNBC · <a href="https://www.cnbc.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">用于2026年选举前的AI监管倡导。</div>
+                    <div class="card-source">📰 CNBC · <a href="https://www.cnbc.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">📋</span>
-                    <span class="section-tag tag-news">动态</span>
+                    <span class="card-title">18家中国公司亮相CES，展示消费级AI机器人</span>
+                    <span class="card-tag tag-news">动态</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">18家中国公司亮相CES，展示消费级AI机器人</div>
-                <div class="card-desc">从仿生宠物、情绪机器人到教育陪伴机器人。</div>
-                <div class="card-source">📰 36氪 · <a href="https://36kr.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">从仿生宠物、情绪机器人到教育陪伴机器人。</div>
+                    <div class="card-source">📰 36氪 · <a href="https://36kr.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
         </div>
     </div>
@@ -247,50 +312,65 @@
             <span class="stats">5 条</span>
         </div>
         <div class="cards">
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🔥</span>
-                    <span class="section-tag tag-focus">焦点</span>
+                    <span class="card-title">Meta投资100亿美元建设AI数据中心</span>
+                    <span class="card-tag tag-focus">焦点</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">Meta投资100亿美元建设AI数据中心</div>
-                <div class="card-desc">Meta在印第安纳州开始建设约100亿美元的数据中心。</div>
-                <div class="card-source">📰 Tech · <a href="Startups https://techstartups.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">Meta在印第安纳州开始建设约100亿美元的数据中心。</div>
+                    <div class="card-source">📰 Tech · <a href="Startups https://techstartups.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🔥</span>
-                    <span class="section-tag tag-focus">焦点</span>
+                    <span class="card-title">具身智能赛道融资激增217%</span>
+                    <span class="card-tag tag-focus">焦点</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">具身智能赛道融资激增217%</div>
-                <div class="card-desc">2025年具身智能赛道融资金额从95.25亿元扩大至405.99亿元。</div>
-                <div class="card-source">📰 虎嗅 · <a href="https://www.huxiu.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">2025年具身智能赛道融资金额从95.25亿元扩大至405.99亿元。</div>
+                    <div class="card-source">📰 虎嗅 · <a href="https://www.huxiu.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">💰</span>
-                    <span class="section-tag tag-funding">融资</span>
+                    <span class="card-title">Seyond上市后业绩增长</span>
+                    <span class="card-tag tag-funding">融资</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">Seyond上市后业绩增长</div>
-                <div class="card-desc">Seyond在港交所上市后实现显著同比增长。</div>
-                <div class="card-source">📰 Markets · <a href="Insider https://markets.businessinsider.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">Seyond在港交所上市后实现显著同比增长。</div>
+                    <div class="card-source">📰 Markets · <a href="Insider https://markets.businessinsider.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🧠</span>
-                    <span class="section-tag tag-tech">AI</span>
+                    <span class="card-title">原力无限发布小原子机器人</span>
+                    <span class="card-tag tag-tech">AI</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">原力无限发布小原子机器人</div>
-                <div class="card-desc">48小时内预定突破百台。</div>
-                <div class="card-source">📰 36氪 · <a href="https://36kr.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">48小时内预定突破百台。</div>
+                    <div class="card-source">📰 36氪 · <a href="https://36kr.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">📋</span>
-                    <span class="section-tag tag-news">动态</span>
+                    <span class="card-title">宇树科技完成新一轮融资</span>
+                    <span class="card-tag tag-news">动态</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">宇树科技完成新一轮融资</div>
-                <div class="card-desc">宇树科技完成新一轮融资，估值大幅提升。</div>
-                <div class="card-source">📰 36氪 · <a href="https://36kr.com" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">宇树科技完成新一轮融资，估值大幅提升。</div>
+                    <div class="card-source">📰 36氪 · <a href="https://36kr.com" target="_blank">原文链接</a></div>
+                </div>
             </div>
         </div>
     </div>
@@ -300,133 +380,180 @@
             <span class="stats">14 条</span>
         </div>
         <div class="cards">
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🔥</span>
-                    <span class="section-tag tag-focus">焦点</span>
+                    <span class="card-title">Google Gemini 全球性故障</span>
+                    <span class="card-tag tag-focus">焦点</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">Google Gemini 全球性故障</div>
-                <div class="card-desc">2月14日，DownDetector收到大量投诉，用户报告Gemini显示错误消息或响应挂起。Google正在调查此问题。</div>
-                <div class="card-source">📰 The · <a href="Verge https://www.androidheadlines.com/2026/02/google-gemini-down-outage-not-working-status.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">2月14日，DownDetector收到大量投诉，用户报告Gemini显示错误消息或响应挂起。Google正在调查此问题。</div>
+                    <div class="card-source">📰 The · <a href="Verge https://www.androidheadlines.com/2026/02/google-gemini-down-outage-not-working-status.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🔥</span>
-                    <span class="section-tag tag-focus">焦点</span>
+                    <span class="card-title">Spotify顶级工程师不再写代码</span>
+                    <span class="card-tag tag-focus">焦点</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">Spotify顶级工程师不再写代码</div>
-                <div class="card-desc">2月14日Spotify CEO透露，公司最优秀的工程师自去年12月起就没写过一行代码，仅负责生成和监督AI代码。</div>
-                <div class="card-source">📰 The · <a href="Verge https://www.theverge.com | Business Insider" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">2月14日Spotify CEO透露，公司最优秀的工程师自去年12月起就没写过一行代码，仅负责生成和监督AI代码。</div>
+                    <div class="card-source">📰 The · <a href="Verge https://www.theverge.com | Business Insider" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">💰</span>
-                    <span class="section-tag tag-funding">融资</span>
+                    <span class="card-title">Anthropic完成300亿美元G轮融资</span>
+                    <span class="card-tag tag-funding">融资</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">Anthropic完成300亿美元G轮融资</div>
-                <div class="card-desc">Anthropic完成300亿美元G轮融资，投后估值达3800亿美元。超级碗广告拉动用户增长11%。</div>
-                <div class="card-source">📰 Reuters · <a href="https://www.reuters.com/technology/pentagon-ai-companies-classified-networks-2026-02-12/" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">Anthropic完成300亿美元G轮融资，投后估值达3800亿美元。超级碗广告拉动用户增长11%。</div>
+                    <div class="card-source">📰 Reuters · <a href="https://www.reuters.com/technology/pentagon-ai-companies-classified-networks-2026-02-12/" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">💰</span>
-                    <span class="section-tag tag-funding">融资</span>
+                    <span class="card-title">无界动力完成超2亿元天使+轮融资</span>
+                    <span class="card-tag tag-funding">融资</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">无界动力完成超2亿元天使+轮融资</div>
-                <div class="card-desc">红杉、线性、高瓴持续追投，加速机器人通用大脑与硬件本体深度迭代。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880677.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">红杉、线性、高瓴持续追投，加速机器人通用大脑与硬件本体深度迭代。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880677.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">💰</span>
-                    <span class="section-tag tag-funding">融资</span>
+                    <span class="card-title">欧盟批准谷歌320亿美元收购Wiz</span>
+                    <span class="card-tag tag-funding">融资</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">欧盟批准谷歌320亿美元收购Wiz</div>
-                <div class="card-desc">欧盟批准谷歌收购云安全公司Wiz，交易金额320亿美元。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880242.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">欧盟批准谷歌收购云安全公司Wiz，交易金额320亿美元。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880242.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🧠</span>
-                    <span class="section-tag tag-tech">AI</span>
+                    <span class="card-title">豆包大模型2.0发布</span>
+                    <span class="card-tag tag-tech">AI</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">豆包大模型2.0发布</div>
-                <div class="card-desc">字节跳动2月14日发布豆包大模型2.0系列，Pro旗舰版在数学竞赛和编程中取得金牌成绩，超越Gemini 3 Pro。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880830.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">字节跳动2月14日发布豆包大模型2.0系列，Pro旗舰版在数学竞赛和编程中取得金牌成绩，超越Gemini 3 Pro。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880830.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🤖</span>
-                    <span class="section-tag tag-robotics">机器人</span>
+                    <span class="card-title">春晚机器人成亮点</span>
+                    <span class="card-tag tag-robotics">机器人</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">春晚机器人成亮点</div>
-                <div class="card-desc">2月14日春节期间，机器人加入春节庆祝活动，AI与传统结合成为亮点。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880735.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">2月14日春节期间，机器人加入春节庆祝活动，AI与传统结合成为亮点。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880735.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">🤖</span>
-                    <span class="section-tag tag-robotics">机器人</span>
+                    <span class="card-title">手术机器人分档收费国标出台</span>
+                    <span class="card-tag tag-robotics">机器人</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">手术机器人分档收费国标出台</div>
-                <div class="card-desc">2026年手术机器人分档收费国标出台，为行业发展提供明确政策指引。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7861689.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">2026年手术机器人分档收费国标出台，为行业发展提供明确政策指引。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7861689.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">💻</span>
-                    <span class="section-tag tag-ai_hardware">AI硬件</span>
+                    <span class="card-title">英伟达Blackwell架构推动AI推理成本降10倍</span>
+                    <span class="card-tag tag-ai_hardware">AI硬件</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">英伟达Blackwell架构推动AI推理成本降10倍</div>
-                <div class="card-desc">英伟达Blackwell架构与开源协同，推动AI推理成本降低10倍，可能导致高频AI应用激增。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880448.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">英伟达Blackwell架构与开源协同，推动AI推理成本降低10倍，可能导致高频AI应用激增。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880448.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">💻</span>
-                    <span class="section-tag tag-ai_hardware">AI硬件</span>
+                    <span class="card-title">亚马逊股价九连跌</span>
+                    <span class="card-tag tag-ai_hardware">AI硬件</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">亚马逊股价九连跌</div>
-                <div class="card-desc">2月14日亚马逊股价九连跌，市值蒸发4630亿美元，成为今年第二只陷入技术性熊市的美股科技巨头。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880723.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">2月14日亚马逊股价九连跌，市值蒸发4630亿美元，成为今年第二只陷入技术性熊市的美股科技巨头。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880723.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">💻</span>
-                    <span class="section-tag tag-ai_hardware">AI硬件</span>
+                    <span class="card-title">联想第三财季营收1575亿元</span>
+                    <span class="card-tag tag-ai_hardware">AI硬件</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">联想第三财季营收1575亿元</div>
-                <div class="card-desc">联想集团第三财季营收1575亿元，同比增长超18%。杨元庆表示AI市场需求将继续高速增长。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7881001.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">联想集团第三财季营收1575亿元，同比增长超18%。杨元庆表示AI市场需求将继续高速增长。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7881001.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">📋</span>
-                    <span class="section-tag tag-news">动态</span>
+                    <span class="card-title">中国AI模型新进展</span>
+                    <span class="card-tag tag-news">动态</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">中国AI模型新进展</div>
-                <div class="card-desc">阿里巴巴、字节跳动、快手、Kling等中国AI模型新进展，显示出中国公司在追赶美国方面的持续努力。</div>
-                <div class="card-source">📰 CNBC · <a href="https://www.cnbc.com/2026/02/14/new-china-ai-models-alibaba-bytedance-seedance-kuaishou-kling.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">阿里巴巴、字节跳动、快手、Kling等中国AI模型新进展，显示出中国公司在追赶美国方面的持续努力。</div>
+                    <div class="card-source">📰 CNBC · <a href="https://www.cnbc.com/2026/02/14/new-china-ai-models-alibaba-bytedance-seedance-kuaishou-kling.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">📋</span>
-                    <span class="section-tag tag-news">动态</span>
+                    <span class="card-title">深圳支持AI硬件产品研发创新</span>
+                    <span class="card-tag tag-news">动态</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">深圳支持AI硬件产品研发创新</div>
-                <div class="card-desc">深圳：支持AI手机、AI眼镜、AI+潮玩、AI+智慧屏等重点产品研发创新。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7878273.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">深圳：支持AI手机、AI眼镜、AI+潮玩、AI+智慧屏等重点产品研发创新。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7878273.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-top">
+            <div class="card" onclick="toggle(this)">
+                <div class="card-header">
                     <span class="card-icon">📋</span>
-                    <span class="section-tag tag-news">动态</span>
+                    <span class="card-title">智谱GLM-5适配华为昇腾芯片</span>
+                    <span class="card-tag tag-news">动态</span>
+                    <span class="expand-hint">▼</span>
                 </div>
-                <div class="card-title">智谱GLM-5适配华为昇腾芯片</div>
-                <div class="card-desc">智谱GLM-5深度适配华为昇腾等国产芯片，国产大模型与国产算力深度融合。</div>
-                <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880242.html" target="_blank">原文链接</a></div>
+                <div class="card-expand">
+                    <div class="card-desc">智谱GLM-5深度适配华为昇腾等国产芯片，国产大模型与国产算力深度融合。</div>
+                    <div class="card-source">📰 钛媒体 · <a href="https://www.tmtpost.com/7880242.html" target="_blank">原文链接</a></div>
+                </div>
             </div>
         </div>
     </div>
+    <script>
+    function toggle(card) {
+        card.classList.toggle("expanded");
+    }
+    </script>
 </body>
 </html>

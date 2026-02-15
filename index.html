@@ -6,49 +6,70 @@
     <title>大蒜粒机研所行业早报</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; min-height: 100vh; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        h1 { text-align: center; font-size: 24px; color: #1a1a1a; margin-bottom: 6px; font-weight: 700; }
-        .subtitle { text-align: center; color: #999; margin-bottom: 24px; font-size: 13px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; color: #2d3748; }
+        .container { max-width: 600px; margin: 0 auto; padding: 24px 16px; }
+        h1 { text-align: center; font-size: 26px; color: #fff; margin-bottom: 8px; font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .subtitle { text-align: center; color: rgba(255,255,255,0.9); margin-bottom: 28px; font-size: 14px; }
         
-        .day-card { background: #fff; border-radius: 12px; margin-bottom: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); cursor: pointer; transition: all 0.2s; }
-        .day-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+        .day-card { background: #fff; border-radius: 16px; margin-bottom: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); cursor: pointer; transition: all 0.3s; }
+        .day-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
         
-        .day-card-header { padding: 18px 20px; border-bottom: 1px solid #f0f0f0; }
-        .day-card-date { font-size: 17px; font-weight: 600; color: #1a1a1a; display: flex; align-items: center; justify-content: space-between; }
-        .day-card-arrow { font-size: 12px; color: #ccc; transition: transform 0.3s; }
+        .day-card-header { padding: 20px 24px; }
+        .day-card-date { font-size: 18px; font-weight: 700; color: #1a202c; display: flex; align-items: center; justify-content: space-between; }
+        .day-card-count { font-size: 13px; color: #718096; background: #f7fafc; padding: 6px 14px; border-radius: 20px; }
+        .day-card-arrow { font-size: 14px; color: #a0aec0; transition: transform 0.3s; }
         .day-card.expanded .day-card-arrow { transform: rotate(180deg); }
         
-        /* 今日焦点预览 */
-        .focus-preview { padding: 16px 20px; background: #fafafa; }
-        .focus-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #eee; }
-        .focus-item:last-child { border-bottom: none; padding-bottom: 0; }
-        .focus-num { font-size: 13px; font-weight: 600; color: #ff4757; min-width: 24px; }
-        .focus-title { font-size: 14px; color: #333; line-height: 1.5; flex: 1; }
+        /* 渐变分隔线 */
+        .day-card-header { border-bottom: 3px solid; border-image: linear-gradient(90deg, #667eea, #764ba2) 1; }
         
-        .day-card-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-        .day-card.expanded .day-card-content { max-height: 2000px; }
+        /* 今日焦点 */
+        .focus-preview { padding: 16px 24px; background: linear-gradient(135deg, #fff5f5 0%, #fffaf0 100%); }
+        .focus-item { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px dashed #fed7d7; }
+        .focus-item:last-child { border-bottom: none; }
+        .focus-num { 
+            font-size: 14px; font-weight: 700; color: #fff; 
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            width: 26px; height: 26px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; min-width: 26px;
+        }
+        .focus-title { font-size: 15px; color: #2d3748; line-height: 1.5; flex: 1; font-weight: 500; }
         
-        .news-list { padding: 16px 20px; }
-        .news-card { padding: 14px 0; border-bottom: 1px solid #f5f5f5; }
+        .day-card-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: #fff; }
+        .day-card.expanded .day-card-content { max-height: 3000px; }
+        
+        .news-list { padding: 8px 24px 24px; }
+        .news-card { padding: 16px 0; border-bottom: 1px solid #edf2f7; }
         .news-card:last-child { border-bottom: none; }
         
-        .news-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-        .news-icon { font-size: 16px; }
-        .news-tag { font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 500; }
-        .tag-focus { background: #ff4757; color: #fff; }
-        .tag-funding { background: #3742fa; color: #fff; }
-        .tag-tech { background: #2ed573; color: #fff; }
-        .tag-robotics { background: #a55eea; color: #fff; }
-        .tag-ai_hardware { background: #ffa502; color: #fff; }
-        .tag-news { background: #747d8c; color: #fff; }
+        .news-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .news-icon { font-size: 18px; }
+        .news-tag { 
+            font-size: 12px; padding: 4px 12px; border-radius: 20px; font-weight: 600; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .tag-focus { background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: #fff; }
+        .tag-funding { background: linear-gradient(135deg, #4facfe, #00f2fe); color: #fff; }
+        .tag-tech { background: linear-gradient(135deg, #43e97b, #38f9d7); color: #fff; }
+        .tag-robotics { background: linear-gradient(135deg, #a18cd1, #fbc2eb); color: #fff; }
+        .tag-ai_hardware { background: linear-gradient(135deg, #fa709a, #fee140); color: #fff; }
+        .tag-news { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #fff; }
         
-        .news-title { font-size: 14px; font-weight: 600; color: #2f3542; line-height: 1.5; margin-bottom: 6px; }
-        .news-desc { font-size: 13px; color: #747d8c; line-height: 1.6; margin-bottom: 8px; }
-        .news-source { font-size: 12px; color: #3742fa; }
-        .news-source a { color: #3742fa; text-decoration: none; }
+        .news-title { font-size: 15px; font-weight: 600; color: #1a202c; line-height: 1.5; margin-bottom: 8px; }
+        .news-desc { font-size: 14px; color: #718096; line-height: 1.7; margin-bottom: 10px; }
+        .news-source { 
+            font-size: 13px; color: #667eea; font-weight: 500; 
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        .news-source a { color: #667eea; text-decoration: none; }
+        .news-source a:hover { text-decoration: underline; }
         
-        .expand-hint { text-align: center; padding: 14px; color: #999; font-size: 13px; background: #fafafa; border-top: 1px solid #f0f0f0; }
+        .expand-hint { 
+            text-align: center; padding: 16px; 
+            color: #a0aec0; font-size: 13px; 
+            border-top: 1px solid #edf2f7;
+            background: linear-gradient(180deg, #fff 0%, #f7fafc 100%);
+        }
     </style>
 </head>
 <body>
@@ -59,6 +80,7 @@
             <div class="day-card-header">
                 <div class="day-card-date">
                     <span>📅 2026年2月15日</span>
+                    <span class="day-card-count">14 条</span>
                     <span class="day-card-arrow">▼</span>
                 </div>
             </div>
@@ -71,8 +93,8 @@
                     <span class="focus-num">2</span>
                     <span class="focus-title">Spotify顶级工程师不再写代码</span>
                 </div>
-                <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #eee; color: #999; font-size: 13px;">
-                    共 14 条新闻，点击查看完整日报
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed #fed7d7; color: #a0aec0; font-size: 13px; text-align: center;">
+                    点击查看完整日报
                 </div>
             </div>
             <div class="day-card-content">
@@ -125,7 +147,7 @@
                     <div class="news-card">
                         <div class="news-header">
                             <span class="news-icon">🧠</span>
-                            <span class="news-tag tag-tech">AI</span>
+                            <span class="news-tag tag-tech">技术</span>
                         </div>
                         <div class="news-title">豆包大模型2.0发布</div>
                         <div class="news-desc">字节跳动2月14日发布豆包大模型2.0系列，Pro旗舰版在数学竞赛和编程中取得金牌成绩，超越Gemini 3 Pro。</div>
@@ -152,7 +174,7 @@
                     <div class="news-card">
                         <div class="news-header">
                             <span class="news-icon">💻</span>
-                            <span class="news-tag tag-ai_hardware">AI硬件</span>
+                            <span class="news-tag tag-ai_hardware">硬件</span>
                         </div>
                         <div class="news-title">英伟达Blackwell架构推动AI推理成本降10倍</div>
                         <div class="news-desc">英伟达Blackwell架构与开源协同，推动AI推理成本降低10倍，可能导致高频AI应用激增。</div>
@@ -161,7 +183,7 @@
                     <div class="news-card">
                         <div class="news-header">
                             <span class="news-icon">💻</span>
-                            <span class="news-tag tag-ai_hardware">AI硬件</span>
+                            <span class="news-tag tag-ai_hardware">硬件</span>
                         </div>
                         <div class="news-title">亚马逊股价九连跌</div>
                         <div class="news-desc">2月14日亚马逊股价九连跌，市值蒸发4630亿美元，成为今年第二只陷入技术性熊市的美股科技巨头。</div>
@@ -170,7 +192,7 @@
                     <div class="news-card">
                         <div class="news-header">
                             <span class="news-icon">💻</span>
-                            <span class="news-tag tag-ai_hardware">AI硬件</span>
+                            <span class="news-tag tag-ai_hardware">硬件</span>
                         </div>
                         <div class="news-title">联想第三财季营收1575亿元</div>
                         <div class="news-desc">联想集团第三财季营收1575亿元，同比增长超18%。杨元庆表示AI市场需求将继续高速增长。</div>
@@ -210,6 +232,7 @@
             <div class="day-card-header">
                 <div class="day-card-date">
                     <span>📅 2026年2月12日</span>
+                    <span class="day-card-count">5 条</span>
                     <span class="day-card-arrow">▼</span>
                 </div>
             </div>
@@ -222,8 +245,8 @@
                     <span class="focus-num">2</span>
                     <span class="focus-title">具身智能赛道融资激增217%</span>
                 </div>
-                <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #eee; color: #999; font-size: 13px;">
-                    共 5 条新闻，点击查看完整日报
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed #fed7d7; color: #a0aec0; font-size: 13px; text-align: center;">
+                    点击查看完整日报
                 </div>
             </div>
             <div class="day-card-content">
@@ -258,7 +281,7 @@
                     <div class="news-card">
                         <div class="news-header">
                             <span class="news-icon">🧠</span>
-                            <span class="news-tag tag-tech">AI</span>
+                            <span class="news-tag tag-tech">技术</span>
                         </div>
                         <div class="news-title">原力无限发布小原子机器人</div>
                         <div class="news-desc">48小时内预定突破百台。</div>
@@ -280,6 +303,7 @@
             <div class="day-card-header">
                 <div class="day-card-date">
                     <span>📅 2026年2月13日</span>
+                    <span class="day-card-count">12 条</span>
                     <span class="day-card-arrow">▼</span>
                 </div>
             </div>
@@ -292,8 +316,8 @@
                     <span class="focus-num">2</span>
                     <span class="focus-title">Anthropic估值达3800亿美元</span>
                 </div>
-                <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #eee; color: #999; font-size: 13px;">
-                    共 12 条新闻，点击查看完整日报
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed #fed7d7; color: #a0aec0; font-size: 13px; text-align: center;">
+                    点击查看完整日报
                 </div>
             </div>
             <div class="day-card-content">
@@ -346,7 +370,7 @@
                     <div class="news-card">
                         <div class="news-header">
                             <span class="news-icon">🧠</span>
-                            <span class="news-tag tag-tech">AI</span>
+                            <span class="news-tag tag-tech">技术</span>
                         </div>
                         <div class="news-title">Google和奔驰联手支持Apollo人形机器人</div>
                         <div class="news-desc">Google DeepMind与Apptronik合作，将先进AI技术应用于Apollo人形机器人。</div>
@@ -355,7 +379,7 @@
                     <div class="news-card">
                         <div class="news-header">
                             <span class="news-icon">🧠</span>
-                            <span class="news-tag tag-tech">AI</span>
+                            <span class="news-tag tag-tech">技术</span>
                         </div>
                         <div class="news-title">嵩山少林寺机器人表演功夫</div>
                         <div class="news-desc">人形机器人在嵩山少林寺表演功夫。</div>
@@ -364,7 +388,7 @@
                     <div class="news-card">
                         <div class="news-header">
                             <span class="news-icon">🧠</span>
-                            <span class="news-tag tag-tech">AI</span>
+                            <span class="news-tag tag-tech">技术</span>
                         </div>
                         <div class="news-title">埃斯顿酷卓发布第二代人形机器人Codroid 02</div>
                         <div class="news-desc">Codroid 02身高170cm，体重70kg，单臂负载5公斤，全身31个自由度。</div>
@@ -413,6 +437,7 @@
             <div class="day-card-header">
                 <div class="day-card-date">
                     <span>📅 2026年2月14日</span>
+                    <span class="day-card-count">9 条</span>
                     <span class="day-card-arrow">▼</span>
                 </div>
             </div>
@@ -425,8 +450,8 @@
                     <span class="focus-num">2</span>
                     <span class="focus-title">原力灵机发布DM0具身模型，联合HuggingFace推真机评测基准RoboChallenge</span>
                 </div>
-                <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #eee; color: #999; font-size: 13px;">
-                    共 9 条新闻，点击查看完整日报
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed #fed7d7; color: #a0aec0; font-size: 13px; text-align: center;">
+                    点击查看完整日报
                 </div>
             </div>
             <div class="day-card-content">
@@ -470,7 +495,7 @@
                     <div class="news-card">
                         <div class="news-header">
                             <span class="news-icon">🧠</span>
-                            <span class="news-tag tag-tech">AI</span>
+                            <span class="news-tag tag-tech">技术</span>
                         </div>
                         <div class="news-title">字节跳动Seedance 2.0引发好莱坞版权抵制风暴</div>
                         <div class="news-desc">字节2月12日推出AI视频模型Seedance 2.0，生成视频可用率超90%。美国电影协会指责其大规模版权侵权。</div>
@@ -479,7 +504,7 @@
                     <div class="news-card">
                         <div class="news-header">
                             <span class="news-icon">🧠</span>
-                            <span class="news-tag tag-tech">AI</span>
+                            <span class="news-tag tag-tech">技术</span>
                         </div>
                         <div class="news-title">OpenAI正式退役GPT-4o，推向更高定价的GPT-5专用推理模型</div>
                         <div class="news-desc">OpenAI终止GPT-4o访问权限，引导用户转向利润更高的专用推理模型GPT-5。</div>
@@ -488,7 +513,7 @@
                     <div class="news-card">
                         <div class="news-header">
                             <span class="news-icon">🧠</span>
-                            <span class="news-tag tag-tech">AI</span>
+                            <span class="news-tag tag-tech">技术</span>
                         </div>
                         <div class="news-title">AI漫剧制作成本打一折，200亿市场迎剧变</div>
                         <div class="news-desc">字节Seedance 2.0将AI漫剧制作周期从21天压缩至3天，单集成本从2万元降至3000元。</div>

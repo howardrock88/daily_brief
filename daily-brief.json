@@ -1,85 +1,256 @@
-{
-  "date": "2026年2月15日",
-  "focus": [
-    {
-      "title": "Google Gemini 全球性故障",
-      "desc": "2月14日，DownDetector收到大量投诉，用户报告Gemini显示错误消息或响应挂起。Google正在调查此问题。",
-      "source": "The Verge https://www.androidheadlines.com/2026/02/google-gemini-down-outage-not-working-status.html"
-    },
-    {
-      "title": "Spotify顶级工程师不再写代码",
-      "desc": "2月14日Spotify CEO透露，公司最优秀的工程师自去年12月起就没写过一行代码，仅负责生成和监督AI代码。",
-      "source": "The Verge https://www.theverge.com | Business Insider"
-    }
-  ],
-  "funding": [
-    {
-      "title": "Anthropic完成300亿美元G轮融资",
-      "desc": "Anthropic完成300亿美元G轮融资，投后估值达3800亿美元。超级碗广告拉动用户增长11%。",
-      "source": "Reuters https://www.reuters.com/technology/pentagon-ai-companies-classified-networks-2026-02-12/"
-    },
-    {
-      "title": "无界动力完成超2亿元天使+轮融资",
-      "desc": "红杉、线性、高瓴持续追投，加速机器人通用大脑与硬件本体深度迭代。",
-      "source": "钛媒体 https://www.tmtpost.com/7880677.html"
-    },
-    {
-      "title": "欧盟批准谷歌320亿美元收购Wiz",
-      "desc": "欧盟批准谷歌收购云安全公司Wiz，交易金额320亿美元。",
-      "source": "钛媒体 https://www.tmtpost.com/7880242.html"
-    }
-  ],
-  "tech": [
-    {
-      "title": "豆包大模型2.0发布",
-      "desc": "字节跳动2月14日发布豆包大模型2.0系列，Pro旗舰版在数学竞赛和编程中取得金牌成绩，超越Gemini 3 Pro。",
-      "source": "钛媒体 https://www.tmtpost.com/7880830.html"
-    }
-  ],
-  "robotics": [
-    {
-      "title": "春晚机器人成亮点",
-      "desc": "2月14日春节期间，机器人加入春节庆祝活动，AI与传统结合成为亮点。",
-      "source": "钛媒体 https://www.tmtpost.com/7880735.html"
-    },
-    {
-      "title": "手术机器人分档收费国标出台",
-      "desc": "2026年手术机器人分档收费国标出台，为行业发展提供明确政策指引。",
-      "source": "钛媒体 https://www.tmtpost.com/7861689.html"
-    }
-  ],
-  "ai_hardware": [
-    {
-      "title": "英伟达Blackwell架构推动AI推理成本降10倍",
-      "desc": "英伟达Blackwell架构与开源协同，推动AI推理成本降低10倍，可能导致高频AI应用激增。",
-      "source": "钛媒体 https://www.tmtpost.com/7880448.html"
-    },
-    {
-      "title": "亚马逊股价九连跌",
-      "desc": "2月14日亚马逊股价九连跌，市值蒸发4630亿美元，成为今年第二只陷入技术性熊市的美股科技巨头。",
-      "source": "钛媒体 https://www.tmtpost.com/7880723.html"
-    },
-    {
-      "title": "联想第三财季营收1575亿元",
-      "desc": "联想集团第三财季营收1575亿元，同比增长超18%。杨元庆表示AI市场需求将继续高速增长。",
-      "source": "钛媒体 https://www.tmtpost.com/7881001.html"
-    }
-  ],
-  "news": [
-    {
-      "title": "中国AI模型新进展",
-      "desc": "阿里巴巴、字节跳动、快手、Kling等中国AI模型新进展，显示出中国公司在追赶美国方面的持续努力。",
-      "source": "CNBC https://www.cnbc.com/2026/02/14/new-china-ai-models-alibaba-bytedance-seedance-kuaishou-kling.html"
-    },
-    {
-      "title": "深圳支持AI硬件产品研发创新",
-      "desc": "深圳：支持AI手机、AI眼镜、AI+潮玩、AI+智慧屏等重点产品研发创新。",
-      "source": "钛媒体 https://www.tmtpost.com/7878273.html"
-    },
-    {
-      "title": "智谱GLM-5适配华为昇腾芯片",
-      "desc": "智谱GLM-5深度适配华为昇腾等国产芯片，国产大模型与国产算力深度融合。",
-      "source": "钛媒体 https://www.tmtpost.com/7880242.html"
-    }
-  ]
-}
+[
+  {
+    "date": "2026年2月12日",
+    "focus": [
+      {
+        "title": "Meta投资100亿美元建设AI数据中心",
+        "desc": "Meta在印第安纳州开始建设约100亿美元的数据中心。",
+        "source": "Tech Startups https://techstartups.com"
+      },
+      {
+        "title": "具身智能赛道融资激增217%",
+        "desc": "2025年具身智能赛道融资金额从95.25亿元扩大至405.99亿元。",
+        "source": "虎嗅 https://www.huxiu.com"
+      }
+    ],
+    "funding": [
+      {
+        "title": "Seyond上市后业绩增长",
+        "desc": "Seyond在港交所上市后实现显著同比增长。",
+        "source": "Markets Insider https://markets.businessinsider.com"
+      }
+    ],
+    "tech": [
+      {
+        "title": "原力无限发布小原子机器人",
+        "desc": "48小时内预定突破百台。",
+        "source": "36氪 https://36kr.com"
+      }
+    ],
+    "robotics": [],
+    "ai_hardware": [],
+    "news": [
+      {
+        "title": "宇树科技完成新一轮融资",
+        "desc": "宇树科技完成新一轮融资，估值大幅提升。",
+        "source": "36氪 https://36kr.com"
+      }
+    ]
+  },
+  {
+    "date": "2026年2月13日",
+    "focus": [
+      {
+        "title": "OpenAI、Anthropic、Google罕见联手",
+        "desc": "三大AI巨头宣布共同推出F/ai创业加速器项目，Meta、Microsoft和Sequoia也参与其中。",
+        "source": "Inc https://www.inc.com"
+      },
+      {
+        "title": "Anthropic估值达3800亿美元",
+        "desc": "Anthropic估值跃升至3800亿美元，进一步缩小与OpenAI的差距。",
+        "source": "Click on Detroit https://www.clickondetroit.com"
+      }
+    ],
+    "funding": [
+      {
+        "title": "临界点获数亿元融资",
+        "desc": "灵巧手公司临界点完成新一轮数亿元融资。",
+        "source": "36氪 https://36kr.com/p/3678179258425990"
+      },
+      {
+        "title": "Onconetix收购Realbotix",
+        "desc": "2月12日，Onconetix宣布收购美国AI人形机器人公司Realbotix。",
+        "source": "Stock Titan https://www.stocktitan.net/news/ai.html"
+      },
+      {
+        "title": "星际光年完成Pre-A轮融资",
+        "desc": "构建具身智能落地物理世界'最后一厘米'。",
+        "source": "36氪 https://36kr.com/p/3519660933962629"
+      }
+    ],
+    "tech": [
+      {
+        "title": "Google和奔驰联手支持Apollo人形机器人",
+        "desc": "Google DeepMind与Apptronik合作，将先进AI技术应用于Apollo人形机器人。",
+        "source": "Interesting Engineering https://www.interestingengineering.com"
+      },
+      {
+        "title": "嵩山少林寺机器人表演功夫",
+        "desc": "人形机器人在嵩山少林寺表演功夫。",
+        "source": "Times of India https://timesofindia.indiatimes.com"
+      },
+      {
+        "title": "埃斯顿酷卓发布第二代人形机器人Codroid 02",
+        "desc": "Codroid 02身高170cm，体重70kg，单臂负载5公斤，全身31个自由度。",
+        "source": "哔哩哔哩 https://www.bilibili.com"
+      }
+    ],
+    "robotics": [],
+    "ai_hardware": [],
+    "news": [
+      {
+        "title": "比尔·盖茨时隔两年半再度访华",
+        "desc": "2月11日，比尔·盖茨现身上海张江。",
+        "source": "IT之家 https://www.ithome.com"
+      },
+      {
+        "title": "荣耀前CEO赵明将加入千里科技董事会",
+        "desc": "赵明将任千里科技联席董事长。",
+        "source": "虎嗅 https://www.huxiu.com"
+      },
+      {
+        "title": "Anthropic向AI监管组织捐赠2000万美元",
+        "desc": "用于2026年选举前的AI监管倡导。",
+        "source": "CNBC https://www.cnbc.com"
+      },
+      {
+        "title": "18家中国公司亮相CES",
+        "desc": "从仿生宠物、情绪机器人到教育陪伴机器人。",
+        "source": "36氪 https://36kr.com"
+      }
+    ]
+  },
+  {
+    "date": "2026年2月14日",
+    "focus": [
+      {
+        "title": "OpenAI警告：DeepSeek瞄准ChatGPT",
+        "desc": "OpenAI向美国会提交备忘录称，中国AI初创公司DeepSeek正针对ChatGPT及美国领先AI公司，试图复制其模型用于自身训练。",
+        "source": "Reuters https://www.reuters.com/technology/artificial-intelligence/openai-warns-chinese-ai-startup-deepseek-targeting-chatgpt-2026-02-13/"
+      },
+      {
+        "title": "原力灵机发布DM0具身模型",
+        "desc": "前旷视联创唐文斌创立的原力灵机发布2.4B参数具身模型DM0，登顶RoboChallenge榜首。公司成立不到一年累计融资近10亿元。",
+        "source": "36氪 https://36kr.com/p/3681608747609988"
+      }
+    ],
+    "funding": [
+      {
+        "title": "五角大楼推动OpenAI、Anthropic向保密网络提供AI工具",
+        "desc": "美国国防部正推动包括OpenAI和Anthropic在内的顶级AI公司，在标准限制较少的情况下向保密网络提供AI工具。",
+        "source": "Reuters https://www.reuters.com/technology/pentagon-ai-companies-classified-networks-2026-02-12/"
+      },
+      {
+        "title": "软银连续第四季度盈利",
+        "desc": "软银集团报告连续第四季度盈利，得益于OpenAI投资带来的收益。",
+        "source": "Reuters https://www.reuters.com/business/softbank-group-ai-investments-2026-02-12/"
+      }
+    ],
+    "tech": [
+      {
+        "title": "字节跳动Seedance 2.0引发好莱坞版权抵制风暴",
+        "desc": "字节2月12日推出AI视频模型Seedance 2.0，生成视频可用率超90%。美国电影协会指责其大规模版权侵权。",
+        "source": "钛媒体 https://www.tmtpost.com/7880532.html"
+      },
+      {
+        "title": "OpenAI正式退役GPT-4o",
+        "desc": "OpenAI终止GPT-4o访问权限，引导用户转向利润更高的专用推理模型GPT-5。",
+        "source": "钛媒体 https://www.tmtpost.com/7880486.html"
+      },
+      {
+        "title": "AI漫剧制作成本打一折",
+        "desc": "字节Seedance 2.0将AI漫剧制作周期从21天压缩至3天，单集成本从2万元降至3000元。",
+        "source": "钛媒体 https://www.tmtpost.com/7880254.html"
+      }
+    ],
+    "robotics": [],
+    "ai_hardware": [],
+    "news": [
+      {
+        "title": "AI担忧引发科技股抛售",
+        "desc": "投资者加剧科技股抛售，担忧AI技术对商业世界的颠覆。纳斯达克指数大幅下跌。",
+        "source": "Reuters https://www.reuters.com/markets/ai-concerns-trigger-tech-selloff-nasdaq-2026-02-13/"
+      },
+      {
+        "title": "美国FDA收AI医疗设备故障报告",
+        "desc": "FDA在AI添加到慢性鼻窦炎治疗医疗设备后，收到至少100起故障和不良事件报告。",
+        "source": "Reuters https://www.reuters.com/healthcare-fda-ai-medical-device-2026-02-09/"
+      }
+    ]
+  },
+  {
+    "date": "2026年2月15日",
+    "focus": [
+      {
+        "title": "Google Gemini 全球性故障",
+        "desc": "2月14日，DownDetector收到大量投诉，用户报告Gemini显示错误消息或响应挂起。Google正在调查此问题。",
+        "source": "The Verge https://www.androidheadlines.com/2026/02/google-gemini-down-outage-not-working-status.html"
+      },
+      {
+        "title": "Spotify顶级工程师不再写代码",
+        "desc": "2月14日Spotify CEO透露，公司最优秀的工程师自去年12月起就没写过一行代码，仅负责生成和监督AI代码。",
+        "source": "The Verge https://www.theverge.com | Business Insider"
+      }
+    ],
+    "funding": [
+      {
+        "title": "Anthropic完成300亿美元G轮融资",
+        "desc": "Anthropic完成300亿美元G轮融资，投后估值达3800亿美元。超级碗广告拉动用户增长11%。",
+        "source": "Reuters https://www.reuters.com/technology/pentagon-ai-companies-classified-networks-2026-02-12/"
+      },
+      {
+        "title": "无界动力完成超2亿元天使+轮融资",
+        "desc": "红杉、线性、高瓴持续追投，加速机器人通用大脑与硬件本体深度迭代。",
+        "source": "钛媒体 https://www.tmtpost.com/7880677.html"
+      },
+      {
+        "title": "欧盟批准谷歌320亿美元收购Wiz",
+        "desc": "欧盟批准谷歌收购云安全公司Wiz，交易金额320亿美元。",
+        "source": "钛媒体 https://www.tmtpost.com/7880242.html"
+      }
+    ],
+    "tech": [
+      {
+        "title": "豆包大模型2.0发布",
+        "desc": "字节跳动2月14日发布豆包大模型2.0系列，Pro旗舰版在数学竞赛和编程中取得金牌成绩，超越Gemini 3 Pro。",
+        "source": "钛媒体 https://www.tmtpost.com/7880830.html"
+      }
+    ],
+    "robotics": [
+      {
+        "title": "春晚机器人成亮点",
+        "desc": "2月14日春节期间，机器人加入春节庆祝活动，AI与传统结合成为亮点。",
+        "source": "钛媒体 https://www.tmtpost.com/7880735.html"
+      },
+      {
+        "title": "手术机器人分档收费国标出台",
+        "desc": "2026年手术机器人分档收费国标出台，为行业发展提供明确政策指引。",
+        "source": "钛媒体 https://www.tmtpost.com/7861689.html"
+      }
+    ],
+    "ai_hardware": [
+      {
+        "title": "英伟达Blackwell架构推动AI推理成本降10倍",
+        "desc": "英伟达Blackwell架构与开源协同，推动AI推理成本降低10倍，可能导致高频AI应用激增。",
+        "source": "钛媒体 https://www.tmtpost.com/7880448.html"
+      },
+      {
+        "title": "亚马逊股价九连跌",
+        "desc": "2月14日亚马逊股价九连跌，市值蒸发4630亿美元，成为今年第二只陷入技术性熊市的美股科技巨头。",
+        "source": "钛媒体 https://www.tmtpost.com/7880723.html"
+      },
+      {
+        "title": "联想第三财季营收1575亿元",
+        "desc": "联想集团第三财季营收1575亿元，同比增长超18%。杨元庆表示AI市场需求将继续高速增长。",
+        "source": "钛媒体 https://www.tmtpost.com/7881001.html"
+      }
+    ],
+    "news": [
+      {
+        "title": "中国AI模型新进展",
+        "desc": "阿里巴巴、字节跳动、快手、Kling等中国AI模型新进展，显示出中国公司在追赶美国方面的持续努力。",
+        "source": "CNBC https://www.cnbc.com/2026/02/14/new-china-ai-models-alibaba-bytedance-seedance-kuaishou-kling.html"
+      },
+      {
+        "title": "深圳支持AI硬件产品研发创新",
+        "desc": "深圳：支持AI手机、AI眼镜、AI+潮玩、AI+智慧屏等重点产品研发创新。",
+        "source": "钛媒体 https://www.tmtpost.com/7878273.html"
+      },
+      {
+        "title": "智谱GLM-5适配华为昇腾芯片",
+        "desc": "智谱GLM-5深度适配华为昇腾等国产芯片，国产大模型与国产算力深度融合。",
+        "source": "钛媒体 https://www.tmtpost.com/7880242.html"
+      }
+    ]
+  }
+]

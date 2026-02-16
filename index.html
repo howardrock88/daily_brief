@@ -263,26 +263,54 @@
     
     <script>
         // Report Data
-        const reports = [
+                const reports = [
             {
                 date: "2026年2月16日",
-                count: 8,
-                focus: [
-                    "中国AI视频模型Seedance 2.0全球走红",
-                    "山东举办国内首个机器人春晚",
-                    "OpenAI神秘模型连破6道前沿数学难题"
-                ],
+                count: 10,
+                focus: ["中国AI视频模型Seedance 2.0全球走红", "山东举办国内首个机器人春晚", "OpenAI神秘模型连破6道前沿数学难题"],
                 news: [
-                    { type: "focus", title: "中国AI视频模型Seedance 2.0全球走红", desc: "中国人工智能视频创作模型Seedance 2.0近日发布后在全球网络上迅速走红，各国用户大量分享该模型生成的超逼真视频，引发国际社会广泛关注。", source: "人民网", url: "http://finance.people.com.cn/n1/2026/0215/c1004-40666458.html" },
-                    { type: "focus", title: "山东举办国内首个机器人春晚", desc: "山东省机器人春节晚会在山东济宁大剧院举行，集结宇树科技、珞石、智元创新等14家企业提供的200余台机器人参与表演。", source: "新浪科技", url: "https://k.sina.com.cn/article_7857201856_1d45362c001902emvi.html" },
-                    { type: "focus", title: "OpenAI神秘模型连破6道前沿数学难题", desc: "AI正在尝试解答人类数学家正在研究的、从未发表过的原创问题。奥特曼表示AI正在创造'新知识'。", source: "新浪财经", url: "https://finance.sina.com.cn/stock/t/2026-02-15/doc-inhmwwmk1068846.shtml" },
-                    { type: "funding", title: "Neysa (印度) - 12亿美元", desc: "投资方: Blackstone。AI云平台，部署2万GPU助力印度AI基础设施建设。", source: "Startup News FYI", url: "https://startupnews.fyi/2026/02/16/blackstone-leads-1-2-billion-funding-round-in-ai-platform-neysa-ahead-of-india-ai-impact-summit-2026/" },
-                    { type: "funding", title: "Adapt - 1000万美元种子轮", desc: "旧金山AI计算机初创，致力于为企业构建AI专用计算机。", source: "OHSEM", url: "https://ohsem.me/2026/02/adapt-raises-10m-seed-to-build-the-ai-computer-for-business/" },
-                    { type: "robotics", title: "中国人形机器人将登春晚秀肌肉", desc: "中国占全球去年约13000台人形机器人出货量的90%，摩根士丹利预测今年销量将翻倍至28000台。", source: "BusinessWorld", url: "https://www.bworldonline.com/technology/2026/02/16/730821/chinas-humanoid-robots-ready-for-lunar-new-year-showtime/" },
-                    { type: "robotics", title: "英伟达发布Cosmos物理AI模型", desc: "英伟达发布Cosmos Transfer 2.5、Cosmos Reason 2及Isaac GR00T N1.6人形机器人开源模型。", source: "New Electronics", url: "https://www.newelectronics.co.uk/content/features/ces-reframed" },
-                    { type: "data", title: "2026年AI的40个狂热风口", desc: "36氪发布2026年AI创业机会全景图，涵盖AI+制造、医疗、教育等多个赛道。", source: "36kr", url: "https://36kr.com/p/3676032461546116" },
-                    { type: "llm", title: "OpenAI - 神秘模型连破数学难题", desc: "AI开始创造'新知识'，正在解答从未发表过的原创数学问题。", source: "新浪财经", url: "https://finance.sina.com.cn/stock/t/2026-02-15/doc-inhmwwmk1068846.shtml" },
-                    { type: "llm", title: "Anthropic - Claude Opus 4.6", desc: "支持自主长期任务执行，Agentic AI成本大幅下降。", source: "AICost", url: "https://aicost.org/blog/ai-today-news-2026-02-15" }
+                    { type: "focus", title: "中国AI视频模型Seedance 2.0全球走红", desc: "中国人工智能视频创作模型Seedance 2.0近日发布后在全球网络上迅速走红。", source: "人民网", url: "http://finance.people.com.cn/n1/2026/0215/c1004-40666458.html" },
+                    { type: "focus", title: "山东举办国内首个机器人春晚", desc: "山东省机器人春节晚会在山东济宁大剧院举行，200余台机器人参与表演。", source: "新浪科技", url: "https://k.sina.com.cn/article_7857201856_1d45362c001902emvi.html" },
+                    { type: "focus", title: "OpenAI神秘模型连破6道前沿数学难题", desc: "AI正在尝试解答人类数学家正在研究的原创问题。", source: "新浪财经", url: "https://finance.sina.com.cn/stock/t/2026-02-15/doc-inhmwwmk1068846.shtml" },
+                    { type: "funding", title: "Neysa (印度) - 12亿美元", desc: "投资方: Blackstone。AI云平台，部署2万GPU。", source: "Startup News FYI", url: "https://startupnews.fyi/2026/02/16/blackstone-leads-1-2-billion-funding-round-in-ai-platform-neysa-ahead-of-india-ai-impact-summit-2026/" },
+                    { type: "funding", title: "Adapt - 1000万美元种子轮", desc: "旧金山AI计算机初创。", source: "OHSEM", url: "https://ohsem.me/2026/02/adapt-raises-10m-seed-to-build-the-ai-computer-for-business/" },
+                    { type: "robotics", title: "中国人形机器人将登春晚秀肌肉", desc: "中国占全球人形机器人出货量90%。", source: "BusinessWorld", url: "https://www.bworldonline.com/technology/2026/02/16/730821/chinas-humanoid-robots-ready-for-lunar-new-year-showtime/" },
+                    { type: "robotics", title: "英伟达发布Cosmos物理AI模型", desc: "发布Cosmos系列模型，布局机器人。", source: "New Electronics", url: "https://www.newelectronics.co.uk/content/features/ces-reframed" },
+                    { type: "data", title: "2026年AI的40个狂热风口", desc: "36氪发布2026年AI创业机会全景图。", source: "36kr", url: "https://36kr.com/p/3676032461546116" },
+                    { type: "llm", title: "Anthropic - Claude Opus 4.6", desc: "支持自主长期任务执行。", source: "AICost", url: "https://aicost.org/blog/ai-today-news-2026-02-15" }
+                ]
+            },
+            {
+                date: "2026年2月15日",
+                count: 10,
+                focus: ["Google Gemini 全球性故障", "Spotify顶级工程师不再写代码", "Anthropic完成300亿美元G轮融资"],
+                news: [
+                    { type: "focus", title: "Google Gemini 全球性故障", desc: "2月14日，DownDetector收到大量投诉。", source: "The Verge", url: "https://www.theverge.com" },
+                    { type: "focus", title: "Spotify顶级工程师不再写代码", desc: "公司最优秀的工程师自去年12月起就没写过一行代码。", source: "The Verge", url: "https://www.theverge.com" },
+                    { type: "focus", title: "Anthropic完成300亿美元G轮融资", desc: "投后估值达3800亿美元。", source: "Reuters", url: "https://www.reuters.com/technology/" },
+                    { type: "funding", title: "无界动力完成超2亿元天使+轮融资", desc: "红杉、线性、高瓴持续追投。", source: "钛媒体", url: "https://www.tmtpost.com/7880677.html" },
+                    { type: "funding", title: "欧盟批准谷歌320亿美元收购Wiz", desc: "欧盟批准谷歌收购云安全公司Wiz。", source: "钛媒体", url: "https://www.tmtpost.com/7880242.html" },
+                    { type: "tech", title: "豆包大模型2.0发布", desc: "字节跳动发布豆包大模型2.0系列。", source: "钛媒体", url: "https://www.tmtpost.com/7880830.html" },
+                    { type: "robotics", title: "春晚机器人成亮点", desc: "春节期间，机器人加入春节庆祝活动。", source: "钛媒体", url: "https://www.tmtpost.com/7880735.html" },
+                    { type: "ai_hardware", title: "英伟达Blackwell推动AI推理成本降10倍", desc: "英伟达Blackwell架构推动AI推理成本降低10倍。", source: "钛媒体", url: "https://www.tmtpost.com/7880448.html" },
+                    { type: "data", title: "亚马逊股价九连跌", desc: "亚马逊股价九连跌，市值蒸发4630亿美元。", source: "钛媒体", url: "https://www.tmtpost.com/7880723.html" }
+                ]
+            },
+            {
+                date: "2026年2月13日",
+                count: 10,
+                focus: ["三大AI巨头联手推出AI创业加速器", "Anthropic估值达3800亿美元", "临界点获数亿元融资"],
+                news: [
+                    { type: "focus", title: "三大AI巨头联手推出AI创业加速器", desc: "OpenAI、Anthropic、Google共同推出F/ai创业加速器项目。", source: "Inc", url: "https://www.inc.com" },
+                    { type: "focus", title: "Anthropic估值达3800亿美元", desc: "Anthropic估值跃升至3800亿美元。", source: "Click on Detroit", url: "https://www.clickondetroit.com" },
+                    { type: "funding", title: "临界点获数亿元融资", desc: "灵巧手公司临界点完成数亿元融资。", source: "36kr", url: "https://36kr.com/p/3678179258425990" },
+                    { type: "funding", title: "Onconetix收购Realbotix", desc: "收购美国AI人形机器人公司Realbotix。", source: "Stock Titan", url: "https://www.stocktitan.net/news/ai.html" },
+                    { type: "funding", title: "星际光年完成Pre-A轮融资", desc: "构建具身智能落地物理世界最后一厘米。", source: "36kr", url: "https://36kr.com/p/3519660933962629" },
+                    { type: "tech", title: "Google和奔驰联手支持Apollo人形机器人", desc: "Google DeepMind与Apptronik合作。", source: "Interesting Engineering", url: "https://interestingengineering.com" },
+                    { type: "tech", title: "嵩山少林寺机器人表演功夫", desc: "人形机器人在嵩山少林寺表演功夫。", source: "Times of India", url: "https://timesofindia.indiatimes.com" },
+                    { type: "robotics", title: "埃斯顿酷卓发布Codroid 02", desc: "身高170cm，体重70kg，单臂负载5公斤。", source: "哔哩哔哩", url: "https://www.bilibili.com/video/BV1rGMHzAEnd/" },
+                    { type: "news", title: "比尔·盖茨时隔两年半再度访华", desc: "比尔·盖茨现身上海张江。", source: "IT之家", url: "https://www.ithome.com/0/921/201.htm" },
+                    { type: "news", title: "18家中国公司亮相CES", desc: "中国创业公司在CES 2026上展示消费级AI机器人。", source: "36kr", url: "https://36kr.com/p/3630131383977225" }
                 ]
             }
         ];

@@ -33,7 +33,6 @@
         }
         .container { max-width: 1200px; margin: 0 auto; }
         
-        /* Header */
         .header { 
             text-align: center; 
             margin-bottom: 32px; 
@@ -56,14 +55,12 @@
             font-weight: 500;
         }
         
-        /* Grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 16px;
         }
         
-        /* Card */
         .card { 
             background: var(--ios-card); 
             border-radius: 16px; 
@@ -110,7 +107,6 @@
         }
         .card-preview-text { font-size: 14px; color: var(--ios-text-secondary); line-height: 1.4; }
         
-        /* Modal */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -172,7 +168,6 @@
             max-height: calc(85vh - 80px);
         }
         
-        /* News in Modal */
         .section { margin-bottom: 24px; }
         .section:last-child { margin-bottom: 0; }
         .section-title { 
@@ -200,8 +195,7 @@
         .tag-focus { background: var(--ios-red); color: #fff; }
         .tag-funding { background: var(--ios-blue); color: #fff; }
         .tag-robotics { background: var(--ios-purple); color: #fff; }
-        .tag-data { background: var(--ios-orange); color: #fff; }
-        .tag-llm { background: var(--ios-green); color: #fff; }
+        .tag-tech { background: var(--ios-green); color: #fff; }
         
         .news-title { font-size: 16px; font-weight: 600; color: var(--ios-text); line-height: 1.4; margin-bottom: 8px; }
         .news-desc { font-size: 14px; color: var(--ios-text-secondary); line-height: 1.6; margin-bottom: 10px; }
@@ -219,10 +213,8 @@
         .funding-title { font-size: 15px; font-weight: 600; color: var(--ios-text); margin-bottom: 8px; }
         .funding-detail { font-size: 13px; color: var(--ios-text-secondary); line-height: 1.5; }
         
-        /* Footer */
         .footer { text-align: center; padding: 32px; color: var(--ios-text-tertiary); font-size: 13px; }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
             .header h1 { font-size: 26px; }
@@ -238,84 +230,53 @@
             <div class="date-badge">📅 每日 7:00 自动更新</div>
         </div>
         
-        <div class="grid" id="reportGrid">
-            <!-- Cards will be inserted here -->
-        </div>
+        <div class="grid" id="reportGrid"></div>
         
         <div class="footer">
             <p>🤖 大蒜粒机研所行业早报 | 每天 7:00 自动更新</p>
-            <p>数据来源: Brave Search API (125+新闻源)</p>
+            <p>数据来源: Brave Search API</p>
         </div>
     </div>
     
-    <!-- Modal -->
     <div class="modal-overlay" id="modal">
         <div class="modal">
             <div class="modal-header">
-                <span class="modal-title" id="modalTitle">2026年2月16日</span>
+                <span class="modal-title" id="modalTitle"></span>
                 <button class="modal-close" onclick="closeModal()">✕</button>
             </div>
-            <div class="modal-body" id="modalBody">
-                <!-- Content -->
-            </div>
+            <div class="modal-body" id="modalBody"></div>
         </div>
     </div>
     
     <script>
-        // Report Data
-                const reports = [
+        const reports = [
             {
                 date: "2026年2月16日",
-                count: 10,
-                focus: ["中国AI视频模型Seedance 2.0全球走红", "山东举办国内首个机器人春晚", "OpenAI神秘模型连破6道前沿数学难题"],
+                count: 6,
+                focus: ["印度AI峰会开幕", "山东机器人春晚", "字节跳动Seedance 2.0发布"],
                 news: [
-                    { type: "focus", title: "中国AI视频模型Seedance 2.0全球走红", desc: "中国人工智能视频创作模型Seedance 2.0近日发布后在全球网络上迅速走红。", source: "人民网", url: "http://finance.people.com.cn/n1/2026/0215/c1004-40666458.html" },
-                    { type: "focus", title: "山东举办国内首个机器人春晚", desc: "山东省机器人春节晚会在山东济宁大剧院举行，200余台机器人参与表演。", source: "新浪科技", url: "https://k.sina.com.cn/article_7857201856_1d45362c001902emvi.html" },
-                    { type: "focus", title: "OpenAI神秘模型连破6道前沿数学难题", desc: "AI正在尝试解答人类数学家正在研究的原创问题。", source: "新浪财经", url: "https://finance.sina.com.cn/stock/t/2026-02-15/doc-inhmwwmk1068846.shtml" },
-                    { type: "funding", title: "Neysa (印度) - 12亿美元", desc: "投资方: Blackstone。AI云平台，部署2万GPU。", source: "Startup News FYI", url: "https://startupnews.fyi/2026/02/16/blackstone-leads-1-2-billion-funding-round-in-ai-platform-neysa-ahead-of-india-ai-impact-summit-2026/" },
-                    { type: "funding", title: "Adapt - 1000万美元种子轮", desc: "旧金山AI计算机初创。", source: "OHSEM", url: "https://ohsem.me/2026/02/adapt-raises-10m-seed-to-build-the-ai-computer-for-business/" },
-                    { type: "robotics", title: "中国人形机器人将登春晚秀肌肉", desc: "中国占全球人形机器人出货量90%。", source: "BusinessWorld", url: "https://www.bworldonline.com/technology/2026/02/16/730821/chinas-humanoid-robots-ready-for-lunar-new-year-showtime/" },
-                    { type: "robotics", title: "英伟达发布Cosmos物理AI模型", desc: "发布Cosmos系列模型，布局机器人。", source: "New Electronics", url: "https://www.newelectronics.co.uk/content/features/ces-reframed" },
-                    { type: "data", title: "2026年AI的40个狂热风口", desc: "36氪发布2026年AI创业机会全景图。", source: "36kr", url: "https://36kr.com/p/3676032461546116" },
-                    { type: "llm", title: "Anthropic - Claude Opus 4.6", desc: "支持自主长期任务执行。", source: "AICost", url: "https://aicost.org/blog/ai-today-news-2026-02-15" }
+                    { type: "focus", title: "印度AI Impact Summit 2026开幕", desc: "2月16日至20日，全球首届南方AI峰会在新德里举办，Sam Altman、Sundar Pichai等CEO出席。", source: "Times of India", url: "https://timesofindia.indiatimes.com" },
+                    { type: "focus", title: "山东举办国内首个机器人春晚", desc: "山东省机器人春晚在济宁举行，14家企业200余台机器人参演，涵盖人形、仿生、工业机械臂。", source: "IT之家", url: "https://www.ithome.com" },
+                    { type: "focus", title: "字节跳动发布Seedance 2.0", desc: "AI视频生成模型Seedance 2.0发布，效果接近好莱坞级别，引发全球关注。", source: "人民网", url: "http://finance.people.com.cn" },
+                    { type: "funding", title: "Neysa (印度) - 12亿美元", desc: "Blackstone领投，AI云平台部署2万GPU。", source: "Startup News FYI", url: "https://startupnews.fyi" },
+                    { type: "funding", title: "Adapt - 1000万美元种子轮", desc: "旧金山AI计算机初创。", source: "OHSEM", url: "https://ohsem.me" },
+                    { type: "robotics", title: "英伟达发布Cosmos物理AI模型", desc: "发布Cosmos系列模型，布局机器人产业。", source: "NVIDIA", url: "https://nvidia.com" }
                 ]
             },
             {
                 date: "2026年2月15日",
-                count: 10,
-                focus: ["Google Gemini 全球性故障", "Spotify顶级工程师不再写代码", "Anthropic完成300亿美元G轮融资"],
+                count: 5,
+                focus: ["Google Gemini故障", "Spotify工程师转AI编程", "Anthropic 300亿美元融资"],
                 news: [
-                    { type: "focus", title: "Google Gemini 全球性故障", desc: "2月14日，DownDetector收到大量投诉。", source: "The Verge", url: "https://www.theverge.com" },
-                    { type: "focus", title: "Spotify顶级工程师不再写代码", desc: "公司最优秀的工程师自去年12月起就没写过一行代码。", source: "The Verge", url: "https://www.theverge.com" },
-                    { type: "focus", title: "Anthropic完成300亿美元G轮融资", desc: "投后估值达3800亿美元。", source: "Reuters", url: "https://www.reuters.com/technology/" },
-                    { type: "funding", title: "无界动力完成超2亿元天使+轮融资", desc: "红杉、线性、高瓴持续追投。", source: "钛媒体", url: "https://www.tmtpost.com/7880677.html" },
-                    { type: "funding", title: "欧盟批准谷歌320亿美元收购Wiz", desc: "欧盟批准谷歌收购云安全公司Wiz。", source: "钛媒体", url: "https://www.tmtpost.com/7880242.html" },
-                    { type: "tech", title: "豆包大模型2.0发布", desc: "字节跳动发布豆包大模型2.0系列。", source: "钛媒体", url: "https://www.tmtpost.com/7880830.html" },
-                    { type: "robotics", title: "春晚机器人成亮点", desc: "春节期间，机器人加入春节庆祝活动。", source: "钛媒体", url: "https://www.tmtpost.com/7880735.html" },
-                    { type: "ai_hardware", title: "英伟达Blackwell推动AI推理成本降10倍", desc: "英伟达Blackwell架构推动AI推理成本降低10倍。", source: "钛媒体", url: "https://www.tmtpost.com/7880448.html" },
-                    { type: "data", title: "亚马逊股价九连跌", desc: "亚马逊股价九连跌，市值蒸发4630亿美元。", source: "钛媒体", url: "https://www.tmtpost.com/7880723.html" }
-                ]
-            },
-            {
-                date: "2026年2月13日",
-                count: 10,
-                focus: ["三大AI巨头联手推出AI创业加速器", "Anthropic估值达3800亿美元", "临界点获数亿元融资"],
-                news: [
-                    { type: "focus", title: "三大AI巨头联手推出AI创业加速器", desc: "OpenAI、Anthropic、Google共同推出F/ai创业加速器项目。", source: "Inc", url: "https://www.inc.com" },
-                    { type: "focus", title: "Anthropic估值达3800亿美元", desc: "Anthropic估值跃升至3800亿美元。", source: "Click on Detroit", url: "https://www.clickondetroit.com" },
-                    { type: "funding", title: "临界点获数亿元融资", desc: "灵巧手公司临界点完成数亿元融资。", source: "36kr", url: "https://36kr.com/p/3678179258425990" },
-                    { type: "funding", title: "Onconetix收购Realbotix", desc: "收购美国AI人形机器人公司Realbotix。", source: "Stock Titan", url: "https://www.stocktitan.net/news/ai.html" },
-                    { type: "funding", title: "星际光年完成Pre-A轮融资", desc: "构建具身智能落地物理世界最后一厘米。", source: "36kr", url: "https://36kr.com/p/3519660933962629" },
-                    { type: "tech", title: "Google和奔驰联手支持Apollo人形机器人", desc: "Google DeepMind与Apptronik合作。", source: "Interesting Engineering", url: "https://interestingengineering.com" },
-                    { type: "tech", title: "嵩山少林寺机器人表演功夫", desc: "人形机器人在嵩山少林寺表演功夫。", source: "Times of India", url: "https://timesofindia.indiatimes.com" },
-                    { type: "robotics", title: "埃斯顿酷卓发布Codroid 02", desc: "身高170cm，体重70kg，单臂负载5公斤。", source: "哔哩哔哩", url: "https://www.bilibili.com/video/BV1rGMHzAEnd/" },
-                    { type: "news", title: "比尔·盖茨时隔两年半再度访华", desc: "比尔·盖茨现身上海张江。", source: "IT之家", url: "https://www.ithome.com/0/921/201.htm" },
-                    { type: "news", title: "18家中国公司亮相CES", desc: "中国创业公司在CES 2026上展示消费级AI机器人。", source: "36kr", url: "https://36kr.com/p/3630131383977225" }
+                    { type: "focus", title: "Google Gemini全球性故障", desc: "2月14日大量用户报告Gemini服务异常。", source: "The Verge", url: "https://www.theverge.com" },
+                    { type: "focus", title: "Spotify顶级工程师不再写代码", desc: "CEO透露最优秀工程师已用AI编程替代手写代码。", source: "The Verge", url: "https://www.theverge.com" },
+                    { type: "focus", title: "Anthropic完成300亿美元融资", desc: "估值达3800亿美元，超级碗投放广告。", source: "Reuters", url: "https://www.reuters.com" },
+                    { type: "funding", title: "无界动力 - 2亿元+", desc: "红杉、线性、高瓴投资，机器人通用大脑。", source: "钛媒体", url: "https://www.tmtpost.com" },
+                    { type: "tech", title: "豆包大模型2.0发布", desc: "字节跳动发布，Pro版超越Gemini 3 Pro。", source: "钛媒体", url: "https://www.tmtpost.com" }
                 ]
             }
         ];
         
-        // Render Cards
         function renderCards() {
             const grid = document.getElementById('reportGrid');
             grid.innerHTML = reports.map((r, i) => `
@@ -336,14 +297,12 @@
             `).join('');
         }
         
-        // Open Modal
         function openModal(index) {
             const r = reports[index];
             document.getElementById('modalTitle').textContent = r.date;
             
             let html = '';
             
-            // Focus
             const focus = r.news.filter(n => n.type === 'focus');
             if (focus.length) {
                 html += '<div class="section"><div class="section-title">🔥 今日焦点</div>';
@@ -352,13 +311,12 @@
                         <span class="news-tag tag-focus">焦点</span>
                         <div class="news-title">${n.title}</div>
                         <div class="news-desc">${n.desc}</div>
-                        <div class="news-source">📰 ${n.source} | <a href="${n.url}" target="_blank">原文链接</a></div>
+                        <div class="news-source">📰 ${n.source}</div>
                     </div>`;
                 });
                 html += '</div>';
             }
             
-            // Funding
             const funding = r.news.filter(n => n.type === 'funding');
             if (funding.length) {
                 html += '<div class="section"><div class="section-title">💰 融资动态</div>';
@@ -366,52 +324,21 @@
                     html += `<div class="funding-item">
                         <div class="funding-title">${n.title}</div>
                         <div class="funding-detail">${n.desc}</div>
-                        <div class="news-source">📰 ${n.source} | <a href="${n.url}" target="_blank">原文链接</a></div>
+                        <div class="news-source">📰 ${n.source}</div>
                     </div>`;
                 });
                 html += '</div>';
             }
             
-            // Robotics
-            const robotics = r.news.filter(n => n.type === 'robotics');
-            if (robotics.length) {
-                html += '<div class="section"><div class="section-title">🤖 机器人进展</div>';
-                robotics.forEach(n => {
+            const other = r.news.filter(n => n.type !== 'focus' && n.type !== 'funding');
+            if (other.length) {
+                html += '<div class="section"><div class="section-title">📱 其他动态</div>';
+                other.forEach(n => {
                     html += `<div class="news-item">
-                        <span class="news-tag tag-robotics">机器人</span>
+                        <span class="news-tag tag-tech">${n.type}</span>
                         <div class="news-title">${n.title}</div>
                         <div class="news-desc">${n.desc}</div>
-                        <div class="news-source">📰 ${n.source} | <a href="${n.url}" target="_blank">原文链接</a></div>
-                    </div>`;
-                });
-                html += '</div>';
-            }
-            
-            // Data
-            const data = r.news.filter(n => n.type === 'data');
-            if (data.length) {
-                html += '<div class="section"><div class="section-title">📊 行业数据</div>';
-                data.forEach(n => {
-                    html += `<div class="news-item">
-                        <span class="news-tag tag-data">数据</span>
-                        <div class="news-title">${n.title}</div>
-                        <div class="news-desc">${n.desc}</div>
-                        <div class="news-source">📰 ${n.source} | <a href="${n.url}" target="_blank">原文链接</a></div>
-                    </div>`;
-                });
-                html += '</div>';
-            }
-            
-            // LLM
-            const llm = r.news.filter(n => n.type === 'llm');
-            if (llm.length) {
-                html += '<div class="section"><div class="section-title">📱 大模型动态</div>';
-                llm.forEach(n => {
-                    html += `<div class="news-item">
-                        <span class="news-tag tag-llm">大模型</span>
-                        <div class="news-title">${n.title}</div>
-                        <div class="news-desc">${n.desc}</div>
-                        <div class="news-source">📰 ${n.source} | <a href="${n.url}" target="_blank">原文链接</a></div>
+                        <div class="news-source">📰 ${n.source}</div>
                     </div>`;
                 });
                 html += '</div>';
@@ -422,23 +349,19 @@
             document.body.style.overflow = 'hidden';
         }
         
-        // Close Modal
         function closeModal() {
             document.getElementById('modal').classList.remove('active');
             document.body.style.overflow = '';
         }
         
-        // Close on overlay click
         document.getElementById('modal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
         
-        // Close on escape
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeModal();
         });
         
-        // Init
         renderCards();
     </script>
 </body>

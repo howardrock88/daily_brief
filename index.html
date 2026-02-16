@@ -204,16 +204,6 @@
         .news-source a { color: var(--ios-blue); text-decoration: none; }
         .news-source a:hover { text-decoration: underline; }
         
-        .funding-item {
-            background: var(--ios-bg);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-        }
-        .funding-item:last-child { margin-bottom: 0; }
-        .funding-title { font-size: 15px; font-weight: 600; color: var(--ios-text); margin-bottom: 8px; }
-        .funding-detail { font-size: 13px; color: var(--ios-text-secondary); line-height: 1.5; }
-        
         .footer { text-align: center; padding: 32px; color: var(--ios-text-tertiary); font-size: 13px; }
         
         @media (max-width: 768px) {
@@ -253,26 +243,16 @@
         const reports = [
             {
                 date: "2026年2月17日",
-                count: 10,
-                focus: ["印度AI峰会开幕", "OpenAI收购OpenClaw", "Qualcomm展示机器人"],
+                count: 8,
                 news: [
-                    // Web Search + X 来源
-                    { type: "focus", title: "印度AI Impact Summit 2026开幕", desc: "2月16日至20日，全球首届南方AI峰会在新德里举办，莫迪总理主持开幕式，Sam Altman、Sundar Pichai等CEO出席。", source: "The Hindu", url: "https://www.thehindu.com" },
-                    { type: "focus", title: "OpenAI收购OpenClaw创始人", desc: "OpenAI聘请OpenClaw创始人Peter Steinberger领导多智能体开发，这是继与Musk法律纠纷后的重大人事胜利。", source: "LatestLY", url: "https://www.latestly.com" },
-                    { type: "focus", title: "英伟达黄仁勋取消印度行程", desc: "英伟达CEO黄仁勋因故取消印度AI峰会行程，Sam Altman和Sundar Pichai确认出席。", source: "Arab News", url: "https://www.arabnews.pk" },
-                    
-                    // 机器人进展
-                    { type: "robotics", title: "Qualcomm展示AI机器人栈", desc: "高通在印度AI峰会上展示完整机器人技术栈，这是其在印度市场的首次亮相。", source: "Business Standard", url: "https://www.business-standard.com" },
-                    { type: "robotics", title: "AGIBOT加速进入泰国市场", desc: "AGIBOT通过多日战略展示加速进入泰国市场，部署可用于旅游和数字化转型的机器人。", source: "Yahoo Finance", url: "https://sg.finance.yahoo.com" },
-                    { type: "robotics", title: "英国发布世界最快开发机器人", desc: "英国公司Humanoid发布19分钟纪录片，展示世界最快开发的人形机器人过程。", source: "Interesting Engineering", url: "https://interestingengineering.com" },
-                    
-                    // X/Twitter 热点头条
-                    { type: "x", title: "Musk vs OpenAI审判文件公开", desc: "特斯拉CEO Musk与OpenAI CEO Altman的审判文件于4月27日开审，文档现已公开。", source: "Times of India", url: "https://timesofindia.indiatimes.com" },
-                    { type: "x", title: "xAI发布Grok语音转录功能", desc: "xAI在Android上推出Grok语音转录功能，与Google Assistant竞争。", source: "LatestLY", url: "https://www.latestly.com" },
-                    
-                    // 行业数据
-                    { type: "tech", title: "内存短缺影响AI供应链", desc: "内存短缺正在收紧AI供应链，电力输送成为数据中心新瓶颈，政府开始制定可执行的AI规则。", source: "Tech Startups", url: "https://techstartups.com" },
-                    { type: "tech", title: "HBM3-HBM4竞争加剧", desc: "本周HBM3和HBM4产能变化，AI PC市场份额变化，TSMC执行领导层变动。", source: "Digitimes", url: "https://www.digitimes.com" }
+                    { type: "focus", title: "印度AI Impact Summit 2026开幕", desc: "2月16日至20日，全球首届南方AI峰会在新德里Bharat Mandapam举办，莫迪总理主持开幕式。20位国家领导人和45个部长级代表团参会，超过600家初创企业参展，预计吸引25万访客。Sam Altman和Sundar Pichai确认出席，黄仁勋因故取消行程。" },
+                    { type: "focus", title: "OpenAI聘请OpenClaw创始人Peter Steinberger", desc: "OpenAI宣布聘请OpenClaw创始人Peter Steinberger领导多智能体开发项目。Steinberger将负责多智能体系统的研发工作，这是继OpenAI与Elon Musk法律纠纷后的重大人事任命，体现了OpenAI在多智能体领域的战略布局。" },
+                    { type: "x", title: "Musk vs OpenAI审判文件将于4月27日开审", desc: "特斯拉CEO Elon Musk与OpenAI CEO Sam Altman之间的审判文件已于近日公开。庭审将于4月27日开始，这场关于OpenAI非营利使命的争议将迎来法律解决。OpenAI还指控Musk支持一个名为CANI的非营利组织作为其代理。" },
+                    { type: "x", title: "xAI发布Grok语音转录功能", desc: "xAI在Android平台推出Grok语音转录功能，用户可以直接通过语音与AI助手交互。这一功能进一步扩展了Grok的移动端能力，与Google Assistant和Siri等语音助手展开竞争。OpenAI Codex用户数量年初至今增长超过3倍。" },
+                    { type: "robotics", title: "Qualcomm在印度AI峰会展示机器人技术栈", desc: "美国芯片巨头高通在印度AI峰会上首次展示其完整的机器人技术栈。高通展示了基于其芯片的机器人解决方案，包括面向消费电子和工业应用的人形机器人平台，标志着其正式进军印度机器人市场。" },
+                    { type: "robotics", title: "AGIBOT加速进入泰国机器人市场", desc: "具身智能机器人公司AGIBOT通过多日战略展示加速进入泰国市场。展示内容包括面向智慧旅游和数字化转型的部署就绪型人形机器人，泰国政府对此表现出浓厚兴趣，双方将开展深度合作。" },
+                    { type: "tech", title: "内存短缺正在收紧AI供应链", desc: "过去24小时的技术行业分析显示，内存短缺正在加剧AI供应链紧张。电力输送成为数据中心新的瓶颈，各国政府开始从抽象的AI原则转向具有约束力的可执行规则，AI监管正在走向实质化。" },
+                    { type: "tech", title: "HBM3-HBM4内存竞争加剧", desc: "本周 DIGITIMES Asia 最受关注的报道涵盖HBM3和HBM4产能变化、AI PC市场份额波动、替代内存架构发展、晶圆代工策略调整以及台积电高管变动。内存技术的竞争正在影响整个AI硬件生态。" }
                 ]
             }
         ];
@@ -286,10 +266,10 @@
                         <div class="card-count">${r.count} 条</div>
                     </div>
                     <div class="card-preview">
-                        ${r.focus.slice(0,3).map((f, j) => `
+                        ${r.news.slice(0,3).map((n, j) => `
                             <div class="card-preview-item">
                                 <span class="card-preview-num">${j+1}</span>
-                                <span class="card-preview-text">${f}</span>
+                                <span class="card-preview-text">${n.title}</span>
                             </div>
                         `).join('')}
                     </div>
@@ -311,7 +291,6 @@
                         <span class="news-tag tag-focus">焦点</span>
                         <div class="news-title">${n.title}</div>
                         <div class="news-desc">${n.desc}</div>
-                        <div class="news-source">📰 ${n.source}</div>
                     </div>`;
                 });
                 html += '</div>';
@@ -325,7 +304,6 @@
                         <span class="news-tag tag-robotics">机器人</span>
                         <div class="news-title">${n.title}</div>
                         <div class="news-desc">${n.desc}</div>
-                        <div class="news-source">📰 ${n.source}</div>
                     </div>`;
                 });
                 html += '</div>';
@@ -339,21 +317,19 @@
                         <span class="news-tag tag-x">X</span>
                         <div class="news-title">${n.title}</div>
                         <div class="news-desc">${n.desc}</div>
-                        <div class="news-source">📰 ${n.source}</div>
                     </div>`;
                 });
                 html += '</div>';
             }
             
-            const other = r.news.filter(n => n.type === 'tech');
-            if (other.length) {
+            const tech = r.news.filter(n => n.type === 'tech');
+            if (tech.length) {
                 html += '<div class="section"><div class="section-title">📊 行业动态</div>';
-                other.forEach(n => {
+                tech.forEach(n => {
                     html += `<div class="news-item">
                         <span class="news-tag tag-tech">行业</span>
                         <div class="news-title">${n.title}</div>
                         <div class="news-desc">${n.desc}</div>
-                        <div class="news-source">📰 ${n.source}</div>
                     </div>`;
                 });
                 html += '</div>';

@@ -196,6 +196,7 @@
         .tag-funding { background: var(--ios-blue); color: #fff; }
         .tag-robotics { background: var(--ios-purple); color: #fff; }
         .tag-tech { background: var(--ios-green); color: #fff; }
+        .tag-x { background: var(--ios-teal); color: #fff; }
         
         .news-title { font-size: 16px; font-weight: 600; color: var(--ios-text); line-height: 1.4; margin-bottom: 8px; }
         .news-desc { font-size: 14px; color: var(--ios-text-secondary); line-height: 1.6; margin-bottom: 10px; }
@@ -234,7 +235,7 @@
         
         <div class="footer">
             <p>🤖 大蒜粒机研所行业早报 | 每天 7:00 自动更新</p>
-            <p>数据来源: Brave Search API</p>
+            <p>数据来源: Brave Search + RSS + X/Twitter</p>
         </div>
     </div>
     
@@ -251,28 +252,27 @@
     <script>
         const reports = [
             {
-                date: "2026年2月16日",
-                count: 6,
-                focus: ["印度AI峰会开幕", "山东机器人春晚", "字节跳动Seedance 2.0发布"],
+                date: "2026年2月17日",
+                count: 10,
+                focus: ["印度AI峰会开幕", "OpenAI收购OpenClaw", "Qualcomm展示机器人"],
                 news: [
-                    { type: "focus", title: "印度AI Impact Summit 2026开幕", desc: "2月16日至20日，全球首届南方AI峰会在新德里举办，Sam Altman、Sundar Pichai等CEO出席。", source: "Times of India", url: "https://timesofindia.indiatimes.com" },
-                    { type: "focus", title: "山东举办国内首个机器人春晚", desc: "山东省机器人春晚在济宁举行，14家企业200余台机器人参演，涵盖人形、仿生、工业机械臂。", source: "IT之家", url: "https://www.ithome.com" },
-                    { type: "focus", title: "字节跳动发布Seedance 2.0", desc: "AI视频生成模型Seedance 2.0发布，效果接近好莱坞级别，引发全球关注。", source: "人民网", url: "http://finance.people.com.cn" },
-                    { type: "funding", title: "Neysa (印度) - 12亿美元", desc: "Blackstone领投，AI云平台部署2万GPU。", source: "Startup News FYI", url: "https://startupnews.fyi" },
-                    { type: "funding", title: "Adapt - 1000万美元种子轮", desc: "旧金山AI计算机初创。", source: "OHSEM", url: "https://ohsem.me" },
-                    { type: "robotics", title: "英伟达发布Cosmos物理AI模型", desc: "发布Cosmos系列模型，布局机器人产业。", source: "NVIDIA", url: "https://nvidia.com" }
-                ]
-            },
-            {
-                date: "2026年2月15日",
-                count: 5,
-                focus: ["Google Gemini故障", "Spotify工程师转AI编程", "Anthropic 300亿美元融资"],
-                news: [
-                    { type: "focus", title: "Google Gemini全球性故障", desc: "2月14日大量用户报告Gemini服务异常。", source: "The Verge", url: "https://www.theverge.com" },
-                    { type: "focus", title: "Spotify顶级工程师不再写代码", desc: "CEO透露最优秀工程师已用AI编程替代手写代码。", source: "The Verge", url: "https://www.theverge.com" },
-                    { type: "focus", title: "Anthropic完成300亿美元融资", desc: "估值达3800亿美元，超级碗投放广告。", source: "Reuters", url: "https://www.reuters.com" },
-                    { type: "funding", title: "无界动力 - 2亿元+", desc: "红杉、线性、高瓴投资，机器人通用大脑。", source: "钛媒体", url: "https://www.tmtpost.com" },
-                    { type: "tech", title: "豆包大模型2.0发布", desc: "字节跳动发布，Pro版超越Gemini 3 Pro。", source: "钛媒体", url: "https://www.tmtpost.com" }
+                    // Web Search + X 来源
+                    { type: "focus", title: "印度AI Impact Summit 2026开幕", desc: "2月16日至20日，全球首届南方AI峰会在新德里举办，莫迪总理主持开幕式，Sam Altman、Sundar Pichai等CEO出席。", source: "The Hindu", url: "https://www.thehindu.com" },
+                    { type: "focus", title: "OpenAI收购OpenClaw创始人", desc: "OpenAI聘请OpenClaw创始人Peter Steinberger领导多智能体开发，这是继与Musk法律纠纷后的重大人事胜利。", source: "LatestLY", url: "https://www.latestly.com" },
+                    { type: "focus", title: "英伟达黄仁勋取消印度行程", desc: "英伟达CEO黄仁勋因故取消印度AI峰会行程，Sam Altman和Sundar Pichai确认出席。", source: "Arab News", url: "https://www.arabnews.pk" },
+                    
+                    // 机器人进展
+                    { type: "robotics", title: "Qualcomm展示AI机器人栈", desc: "高通在印度AI峰会上展示完整机器人技术栈，这是其在印度市场的首次亮相。", source: "Business Standard", url: "https://www.business-standard.com" },
+                    { type: "robotics", title: "AGIBOT加速进入泰国市场", desc: "AGIBOT通过多日战略展示加速进入泰国市场，部署可用于旅游和数字化转型的机器人。", source: "Yahoo Finance", url: "https://sg.finance.yahoo.com" },
+                    { type: "robotics", title: "英国发布世界最快开发机器人", desc: "英国公司Humanoid发布19分钟纪录片，展示世界最快开发的人形机器人过程。", source: "Interesting Engineering", url: "https://interestingengineering.com" },
+                    
+                    // X/Twitter 热点头条
+                    { type: "x", title: "Musk vs OpenAI审判文件公开", desc: "特斯拉CEO Musk与OpenAI CEO Altman的审判文件于4月27日开审，文档现已公开。", source: "Times of India", url: "https://timesofindia.indiatimes.com" },
+                    { type: "x", title: "xAI发布Grok语音转录功能", desc: "xAI在Android上推出Grok语音转录功能，与Google Assistant竞争。", source: "LatestLY", url: "https://www.latestly.com" },
+                    
+                    // 行业数据
+                    { type: "tech", title: "内存短缺影响AI供应链", desc: "内存短缺正在收紧AI供应链，电力输送成为数据中心新瓶颈，政府开始制定可执行的AI规则。", source: "Tech Startups", url: "https://techstartups.com" },
+                    { type: "tech", title: "HBM3-HBM4竞争加剧", desc: "本周HBM3和HBM4产能变化，AI PC市场份额变化，TSMC执行领导层变动。", source: "Digitimes", url: "https://www.digitimes.com" }
                 ]
             }
         ];
@@ -317,25 +317,40 @@
                 html += '</div>';
             }
             
-            const funding = r.news.filter(n => n.type === 'funding');
-            if (funding.length) {
-                html += '<div class="section"><div class="section-title">💰 融资动态</div>';
-                funding.forEach(n => {
-                    html += `<div class="funding-item">
-                        <div class="funding-title">${n.title}</div>
-                        <div class="funding-detail">${n.desc}</div>
+            const robotics = r.news.filter(n => n.type === 'robotics');
+            if (robotics.length) {
+                html += '<div class="section"><div class="section-title">🤖 机器人进展</div>';
+                robotics.forEach(n => {
+                    html += `<div class="news-item">
+                        <span class="news-tag tag-robotics">机器人</span>
+                        <div class="news-title">${n.title}</div>
+                        <div class="news-desc">${n.desc}</div>
                         <div class="news-source">📰 ${n.source}</div>
                     </div>`;
                 });
                 html += '</div>';
             }
             
-            const other = r.news.filter(n => n.type !== 'focus' && n.type !== 'funding');
+            const x = r.news.filter(n => n.type === 'x');
+            if (x.length) {
+                html += '<div class="section"><div class="section-title">🐦 X/Twitter热点</div>';
+                x.forEach(n => {
+                    html += `<div class="news-item">
+                        <span class="news-tag tag-x">X</span>
+                        <div class="news-title">${n.title}</div>
+                        <div class="news-desc">${n.desc}</div>
+                        <div class="news-source">📰 ${n.source}</div>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+            
+            const other = r.news.filter(n => n.type === 'tech');
             if (other.length) {
-                html += '<div class="section"><div class="section-title">📱 其他动态</div>';
+                html += '<div class="section"><div class="section-title">📊 行业动态</div>';
                 other.forEach(n => {
                     html += `<div class="news-item">
-                        <span class="news-tag tag-tech">${n.type}</span>
+                        <span class="news-tag tag-tech">行业</span>
                         <div class="news-title">${n.title}</div>
                         <div class="news-desc">${n.desc}</div>
                         <div class="news-source">📰 ${n.source}</div>

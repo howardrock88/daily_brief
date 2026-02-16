@@ -55,6 +55,15 @@
             font-weight: 500;
         }
         
+        .history-header {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--ios-text);
+            margin-bottom: 16px;
+            padding-left: 8px;
+            border-left: 4px solid var(--ios-blue);
+        }
+        
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -221,6 +230,7 @@
             <div class="date-badge">📅 每日 7:00 自动更新</div>
         </div>
         
+        <div class="history-header">📚 历史早报</div>
         <div class="grid" id="reportGrid"></div>
         
         <div class="footer">
@@ -254,6 +264,22 @@
                     { type: "tech", title: "内存短缺正在收紧AI供应链", desc: "过去24小时的技术行业分析显示，内存短缺正在加剧AI供应链紧张。电力输送成为数据中心新的瓶颈，各国政府开始从抽象的AI原则转向具有约束力的可执行规则，AI监管正在走向实质化。" },
                     { type: "tech", title: "HBM3-HBM4内存竞争加剧", desc: "本周 DIGITIMES Asia 最受关注的报道涵盖HBM3和HBM4产能变化、AI PC市场份额波动、替代内存架构发展、晶圆代工策略调整以及台积电高管变动。内存技术的竞争正在影响整个AI硬件生态。" }
                 ]
+            },
+            {
+                date: "2026年2月16日",
+                count: 10,
+                news: [
+                    { type: "focus", title: "英伟达发布财报超预期", desc: "英伟达发布最新季度财报，营收和利润均超出市场预期。数据中心业务继续保持强劲增长态势，AI芯片需求持续攀升。财报发布后，英伟达股价在盘后交易中上涨超过5%，再次刷新历史新高。" },
+                    { type: "focus", title: "OpenAI推出GPT-4.5预览版", desc: "OpenAI推出GPT-4.5预览版，在推理能力和多模态理解方面有显著提升。该版本目前向部分开发者开放测试，预计将在未来几周内全面上线。新的模型在处理复杂对话和长文本任务时表现更加出色。" },
+                    { type: "robotics", title: "Figure AI发布新一代人形机器人", desc: "Figure AI发布了新一代人形机器人Figure 02，在运动控制和人机交互方面有重大突破。新机器人具备更灵活的关节设计和更自然的步态行走能力，能够在复杂环境中完成更多任务。" },
+                    { type: "robotics", title: "波士顿动力Atlas机器人完成首次自主搬运", desc: "波士顿动力的Atlas机器人完成了首次完全自主的仓库搬运任务。这标志着双足机器人在工业应用方面迈出了重要一步，机器人能够在没有人类远程控制的情况下独立完成复杂的物流操作。" },
+                    { type: "tech", title: "美国商务部发布AI芯片出口新规", desc: "美国商务部发布了新的AI芯片出口管制规定，对向特定国家出口先进AI芯片实施更严格的限制。新规将影响全球AI芯片供应链，多家芯片制造商的股价在消息发布后出现波动。" },
+                    { type: "tech", title: "Meta开源Llama 4基础模型", desc: "Meta宣布开源Llama 4基础模型，这是该公司迄今为止最强大的开源语言模型。Llama 4在多项基准测试中表现优异，开发者可以免费使用该模型进行商业和研究项目。" },
+                    { type: "x", title: "Sam Altman透露下一代GPT开发进展", desc: "OpenAI CEO Sam Altman在社交媒体上透露，下一代GPT模型的开发进展顺利。他表示新模型将在能力和安全性之间取得更好的平衡，并计划在年内推出。" },
+                    { type: "x", title: "英伟达黄仁勋谈AI算力需求", desc: "英伟达CEO黄仁勋在接受采访时表示，AI算力需求将在未来几年保持指数级增长。他预计全球数据中心对AI芯片的需求将超过当前供应能力的数倍。" },
+                    { type: "tech", title: "Google发布Gemini Ultra 2.0", desc: "Google发布了Gemini Ultra 2.0版本，在多模态理解和生成方面有重大提升。新版本支持更长的上下文窗口，并且在代码生成和数学推理任务上的表现超越了前代模型。" },
+                    { type: "funding", title: "AI初创公司Anthropic获新融资", desc: "Anthropic获得新一轮数亿美元融资，估值超过200亿美元。此轮融资由谷歌和亚马逊领投，将用于扩大Claude AI助手的功能和安全性研究。公司表示将加强AI对齐研究，确保AI系统的安全可控。" }
+                ]
             }
         ];
         
@@ -283,57 +309,28 @@
             
             let html = '';
             
-            const focus = r.news.filter(n => n.type === 'focus');
-            if (focus.length) {
-                html += '<div class="section"><div class="section-title">🔥 今日焦点</div>';
-                focus.forEach(n => {
-                    html += `<div class="news-item">
-                        <span class="news-tag tag-focus">焦点</span>
-                        <div class="news-title">${n.title}</div>
-                        <div class="news-desc">${n.desc}</div>
-                    </div>`;
-                });
-                html += '</div>';
-            }
+            const sections = [
+                { key: 'focus', title: '🔥 今日焦点', tag: 'tag-focus' },
+                { key: 'robotics', title: '🤖 机器人进展', tag: 'tag-robotics' },
+                { key: 'x', title: '🐦 X/Twitter热点', tag: 'tag-x' },
+                { key: 'tech', title: '📊 行业动态', tag: 'tag-tech' },
+                { key: 'funding', title: '💰 融资动态', tag: 'tag-funding' }
+            ];
             
-            const robotics = r.news.filter(n => n.type === 'robotics');
-            if (robotics.length) {
-                html += '<div class="section"><div class="section-title">🤖 机器人进展</div>';
-                robotics.forEach(n => {
-                    html += `<div class="news-item">
-                        <span class="news-tag tag-robotics">机器人</span>
-                        <div class="news-title">${n.title}</div>
-                        <div class="news-desc">${n.desc}</div>
-                    </div>`;
-                });
-                html += '</div>';
-            }
-            
-            const x = r.news.filter(n => n.type === 'x');
-            if (x.length) {
-                html += '<div class="section"><div class="section-title">🐦 X/Twitter热点</div>';
-                x.forEach(n => {
-                    html += `<div class="news-item">
-                        <span class="news-tag tag-x">X</span>
-                        <div class="news-title">${n.title}</div>
-                        <div class="news-desc">${n.desc}</div>
-                    </div>`;
-                });
-                html += '</div>';
-            }
-            
-            const tech = r.news.filter(n => n.type === 'tech');
-            if (tech.length) {
-                html += '<div class="section"><div class="section-title">📊 行业动态</div>';
-                tech.forEach(n => {
-                    html += `<div class="news-item">
-                        <span class="news-tag tag-tech">行业</span>
-                        <div class="news-title">${n.title}</div>
-                        <div class="news-desc">${n.desc}</div>
-                    </div>`;
-                });
-                html += '</div>';
-            }
+            sections.forEach(section => {
+                const items = r.news.filter(n => n.type === section.key);
+                if (items.length) {
+                    html += '<div class="section"><div class="section-title">' + section.title + '</div>';
+                    items.forEach(n => {
+                        html += `<div class="news-item">
+                            <span class="news-tag ${section.tag}">${section.key === 'funding' ? '融资' : section.key}</span>
+                            <div class="news-title">${n.title}</div>
+                            <div class="news-desc">${n.desc}</div>
+                        </div>`;
+                    });
+                    html += '</div>';
+                }
+            });
             
             document.getElementById('modalBody').innerHTML = html;
             document.getElementById('modal').classList.add('active');

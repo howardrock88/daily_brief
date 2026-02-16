@@ -6,263 +6,240 @@
     <title>大蒜粒机研所行业早报</title>
     <style>
         :root {
-            --primary: #1a1a2e;
-            --secondary: #16213e;
-            --accent: #e94560;
-            --accent-blue: #0f3460;
-            --text: #333;
-            --text-light: #666;
-            --bg: #f8f9fa;
-            --card-bg: #fff;
+            --ios-blue: #007AFF;
+            --ios-green: #34C759;
+            --ios-orange: #FF9500;
+            --ios-red: #FF3B30;
+            --ios-purple: #AF52DE;
+            --ios-pink: #FF2D55;
+            --ios-yellow: #FFCC00;
+            --ios-teal: #5AC8FA;
+            --ios-gray: #8E8E93;
+            --ios-bg: #F2F2F7;
+            --ios-card: #FFFFFF;
+            --ios-text: #000000;
+            --ios-text-secondary: #3C3C43;
+            --ios-text-tertiary: #C7C7CC;
+            --ios-separator: #C6C6C8;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif; 
-            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif; 
+            background: var(--ios-bg);
             min-height: 100vh; 
             padding: 20px;
-            color: var(--text);
+            color: var(--ios-text);
+            -webkit-font-smoothing: antialiased;
         }
-        .container { max-width: 680px; margin: 0 auto; }
+        .container { max-width: 1200px; margin: 0 auto; }
         
         /* Header */
-        .header { text-align: center; margin-bottom: 32px; padding: 32px 20px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); border-radius: 20px; color: #fff; }
-        .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
-        .header .tagline { font-size: 14px; opacity: 0.8; }
-        .header .date-badge { display: inline-block; margin-top: 16px; padding: 8px 20px; background: rgba(255,255,255,0.15); border-radius: 20px; font-size: 13px; backdrop-filter: blur(10px); }
+        .header { 
+            text-align: center; 
+            margin-bottom: 32px; 
+            padding: 40px 20px; 
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%); 
+            border-radius: 20px; 
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(0,122,255,0.3);
+        }
+        .header h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .header .tagline { font-size: 15px; opacity: 0.9; font-weight: 400; }
+        .header .date-badge { 
+            display: inline-block; 
+            margin-top: 16px; 
+            padding: 10px 24px; 
+            background: rgba(255,255,255,0.2); 
+            border-radius: 20px; 
+            font-size: 14px; 
+            backdrop-filter: blur(10px);
+            font-weight: 500;
+        }
         
-        /* Day Card */
-        .day-card { 
-            background: var(--card-bg); 
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+        
+        /* Card */
+        .card { 
+            background: var(--ios-card); 
             border-radius: 16px; 
-            margin-bottom: 16px; 
             overflow: hidden; 
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06); 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
             cursor: pointer; 
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid #eee;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid rgba(0,0,0,0.05);
         }
-        .day-card:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1); 
+        .card:hover { 
+            transform: scale(1.02); 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12); 
         }
         
-        .day-card-header { 
-            padding: 20px 24px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between;
-            border-bottom: 1px solid #f0f0f0;
+        .card-header { 
+            padding: 20px; 
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            color: #fff;
         }
-        .day-card-date { font-size: 17px; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 8px; }
-        .day-card-date .icon { font-size: 18px; }
-        .day-card-meta { display: flex; align-items: center; gap: 12px; }
-        .day-card-count { font-size: 12px; color: var(--accent); background: rgba(233,69,96,0.08); padding: 5px 12px; border-radius: 12px; font-weight: 600; }
-        .day-card-arrow { font-size: 12px; color: #999; transition: transform 0.3s; }
-        .day-card.expanded .day-card-arrow { transform: rotate(180deg); }
-        
-        /* Focus Preview */
-        .focus-preview { padding: 16px 24px; background: linear-gradient(180deg, #fafafa 0%, #fff 100%); }
-        .focus-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; }
-        .focus-num { 
-            font-size: 12px; font-weight: 700; color: #fff; 
-            background: var(--accent);
-            width: 22px; height: 22px; border-radius: 6px; 
-            display: flex; align-items: center; justify-content: center; 
-            min-width: 22px;
-        }
-        .focus-title { font-size: 14px; color: var(--text); line-height: 1.5; flex: 1; font-weight: 500; }
-        
-        .expand-hint { 
-            text-align: center; padding: 14px; 
-            color: var(--accent); 
-            font-size: 13px; 
-            border-top: 1px solid #f0f0f0;
+        .card-date { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        .card-count { 
+            font-size: 12px; 
+            background: rgba(255,255,255,0.25); 
+            padding: 4px 12px; 
+            border-radius: 12px; 
             font-weight: 600;
         }
         
-        /* Expanded Content */
-        .day-card-content { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); background: #fff; }
-        .day-card.expanded .day-card-content { max-height: 5000px; }
+        .card-preview { padding: 16px 20px; }
+        .card-preview-item { 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 10px; 
+            padding: 8px 0;
+            border-bottom: 1px solid var(--ios-separator);
+        }
+        .card-preview-item:last-child { border-bottom: none; }
+        .card-preview-num {
+            font-size: 12px; font-weight: 700; color: #fff; 
+            background: var(--ios-blue);
+            width: 20px; height: 20px; border-radius: 6px; 
+            display: flex; align-items: center; justify-content: center; 
+            min-width: 20px;
+        }
+        .card-preview-text { font-size: 14px; color: var(--ios-text-secondary); line-height: 1.4; }
         
-        .section { padding: 0 24px; }
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        
+        .modal {
+            background: var(--ios-card);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 700px;
+            max-height: 85vh;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: modalIn 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.95) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        
+        .modal-header {
+            padding: 20px 24px;
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .modal-title { font-size: 20px; font-weight: 700; }
+        .modal-close {
+            width: 32px; height: 32px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .modal-close:hover { background: rgba(255,255,255,0.3); }
+        
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            max-height: calc(85vh - 80px);
+        }
+        
+        /* News in Modal */
+        .section { margin-bottom: 24px; }
+        .section:last-child { margin-bottom: 0; }
         .section-title { 
-            font-size: 15px; font-weight: 700; color: var(--primary); 
-            padding: 20px 0 12px;
+            font-size: 15px; font-weight: 700; color: var(--ios-text); 
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid var(--ios-blue);
             display: flex; align-items: center; gap: 8px;
         }
-        .section-title .icon { font-size: 16px; }
         
-        .news-list { padding: 0 24px 24px; }
-        .news-card { padding: 18px 0; border-bottom: 1px solid #f5f5f5; }
-        .news-card:last-child { border-bottom: none; }
+        .news-item { 
+            padding: 16px 0; 
+            border-bottom: 1px solid var(--ios-separator); 
+        }
+        .news-item:last-child { border-bottom: none; }
         
-        .news-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .news-tag { font-size: 11px; padding: 4px 10px; border-radius: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .tag-focus { background: var(--accent); color: #fff; }
-        .tag-funding { background: #4facfe; color: #fff; }
-        .tag-robotics { background: #a18cd1; color: #fff; }
-        .tag-tech { background: #43e97b; color: #fff; }
-        .tag-data { background: #fa709a; color: #fff; }
-        .tag-llm { background: #f59e0b; color: #fff; }
+        .news-tag { 
+            display: inline-block;
+            font-size: 11px; 
+            padding: 4px 10px; 
+            border-radius: 6px; 
+            font-weight: 600; 
+            margin-bottom: 8px;
+        }
+        .tag-focus { background: var(--ios-red); color: #fff; }
+        .tag-funding { background: var(--ios-blue); color: #fff; }
+        .tag-robotics { background: var(--ios-purple); color: #fff; }
+        .tag-data { background: var(--ios-orange); color: #fff; }
+        .tag-llm { background: var(--ios-green); color: #fff; }
         
-        .news-title { font-size: 15px; font-weight: 600; color: var(--primary); line-height: 1.5; margin-bottom: 8px; }
-        .news-desc { font-size: 13px; color: var(--text-light); line-height: 1.7; margin-bottom: 10px; }
-        .news-source { font-size: 12px; color: #888; }
-        .news-source a { color: var(--accent); text-decoration: none; font-weight: 500; }
+        .news-title { font-size: 16px; font-weight: 600; color: var(--ios-text); line-height: 1.4; margin-bottom: 8px; }
+        .news-desc { font-size: 14px; color: var(--ios-text-secondary); line-height: 1.6; margin-bottom: 10px; }
+        .news-source { font-size: 13px; color: var(--ios-blue); }
+        .news-source a { color: var(--ios-blue); text-decoration: none; }
         .news-source a:hover { text-decoration: underline; }
         
+        .funding-item {
+            background: var(--ios-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        .funding-item:last-child { margin-bottom: 0; }
+        .funding-title { font-size: 15px; font-weight: 600; color: var(--ios-text); margin-bottom: 8px; }
+        .funding-detail { font-size: 13px; color: var(--ios-text-secondary); line-height: 1.5; }
+        
         /* Footer */
-        .footer { text-align: center; padding: 24px; color: #999; font-size: 12px; }
-        .footer a { color: #666; }
+        .footer { text-align: center; padding: 32px; color: var(--ios-text-tertiary); font-size: 13px; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 26px; }
+            .modal { max-height: 90vh; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🤖 大蒜粒机研所行业早报</h1>
-            <p class="tagline">AI · 机器人 · 科技</p>
+            <h1>🤖 大蒜粒机研所</h1>
+            <p class="tagline">AI · 机器人 · 科技行业早报</p>
             <div class="date-badge">📅 每日 7:00 自动更新</div>
         </div>
         
-        <!-- 2026年2月16日 -->
-        <div class="day-card" onclick="toggle(this)">
-            <div class="day-card-header">
-                <div class="day-card-date">
-                    <span class="icon">📅</span>
-                    <span>2026年2月16日</span>
-                </div>
-                <div class="day-card-meta">
-                    <span class="day-card-count">8 条</span>
-                    <span class="day-card-arrow">▼</span>
-                </div>
-            </div>
-            <div class="focus-preview">
-                <div class="focus-item">
-                    <span class="focus-num">1</span>
-                    <span class="focus-title">中国AI视频模型Seedance 2.0全球走红</span>
-                </div>
-                <div class="focus-item">
-                    <span class="focus-num">2</span>
-                    <span class="focus-title">山东举办国内首个机器人春晚</span>
-                </div>
-                <div class="focus-item">
-                    <span class="focus-num">3</span>
-                    <span class="focus-title">OpenAI神秘模型连破6道前沿数学难题</span>
-                </div>
-                <div class="expand-hint">点击展开查看详情 ▼</div>
-            </div>
-            <div class="day-card-content">
-                <div class="section">
-                    <div class="section-title"><span class="icon">🔥</span> 今日焦点</div>
-                </div>
-                <div class="news-list">
-                    <div class="news-card">
-                        <div class="news-header">
-                            <span class="news-tag tag-focus">焦点</span>
-                        </div>
-                        <div class="news-title">中国AI视频模型Seedance 2.0全球走红</div>
-                        <div class="news-desc">中国人工智能视频创作模型Seedance 2.0近日发布后在全球网络上迅速走红，各国用户大量分享该模型生成的超逼真视频，引发国际社会广泛关注与热议。</div>
-                        <div class="news-source">📰 人民网 | <a href="http://finance.people.com.cn/n1/2026/0215/c1004-40666458.html" target="_blank">原文链接</a></div>
-                    </div>
-                    <div class="news-card">
-                        <div class="news-header">
-                            <span class="news-tag tag-focus">焦点</span>
-                        </div>
-                        <div class="news-title">山东举办国内首个机器人春晚</div>
-                        <div class="news-desc">山东省机器人春节晚会在山东济宁大剧院举行，集结宇树科技、珞石、智元创新等14家企业提供的200余台机器人参与表演，涵盖人形、仿生、工业机械臂等类型。</div>
-                        <div class="news-source">📰 新浪科技 | <a href="https://k.sina.com.cn/article_7857201856_1d45362c001902emvi.html" target="_blank">原文链接</a></div>
-                    </div>
-                    <div class="news-card">
-                        <div class="news-header">
-                            <span class="news-tag tag-focus">焦点</span>
-                        </div>
-                        <div class="news-title">OpenAI神秘模型连破6道前沿数学难题</div>
-                        <div class="news-desc">AI正在尝试解答人类数学家正在研究的、从未发表过的原创问题。奥特曼表示AI正在创造"新知识"，这一突破可能改变科学研究的方式。</div>
-                        <div class="news-source">📰 新浪财经 | <a href="https://finance.sina.com.cn/stock/t/2026-02-15/doc-inhmwwmk1068846.shtml" target="_blank">原文链接</a></div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title"><span class="icon">💰</span> 融资动态</div>
-                </div>
-                <div class="news-list">
-                    <div class="news-card">
-                        <div class="news-header">
-                            <span class="news-tag tag-funding">融资</span>
-                        </div>
-                        <div class="news-title">Neysa (印度) - 12亿美元</div>
-                        <div class="news-desc">投资方: Blackstone。AI云平台，部署2万GPU助力印度AI基础设施建设。</div>
-                        <div class="news-source">📰 Startup News FYI | <a href="https://startupnews.fyi/2026/02/16/blackstone-leads-1-2-billion-funding-round-in-ai-platform-neysa-ahead-of-india-ai-impact-summit-2026/" target="_blank">原文链接</a></div>
-                    </div>
-                    <div class="news-card">
-                        <div class="news-header">
-                            <span class="news-tag tag-funding">融资</span>
-                        </div>
-                        <div class="news-title">Adapt - 1000万美元种子轮</div>
-                        <div class="news-desc">旧金山AI计算机初创，致力于为企业构建AI专用计算机。</div>
-                        <div class="news-source">📰 OHSEM | <a href="https://ohsem.me/2026/02/adapt-raises-10m-seed-to-build-the-ai-computer-for-business/" target="_blank">原文链接</a></div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title"><span class="icon">🤖</span> 机器人进展</div>
-                </div>
-                <div class="news-list">
-                    <div class="news-card">
-                        <div class="news-header">
-                            <span class="news-tag tag-robotics">机器人</span>
-                        </div>
-                        <div class="news-title">中国人形机器人将登春晚秀肌肉</div>
-                        <div class="news-desc">中国占全球去年约13000台人形机器人出货量的90%，摩根士丹利预测今年销量将翻倍至28000台。宇树科技创始人王兴兴表示：具身智能热潮才刚开始。</div>
-                        <div class="news-source">📰 BusinessWorld | <a href="https://www.bworldonline.com/technology/2026/02/16/730821/chinas-humanoid-robots-ready-for-lunar-new-year-showtime/" target="_blank">原文链接</a></div>
-                    </div>
-                    <div class="news-card">
-                        <div class="news-header">
-                            <span class="news-tag tag-robotics">机器人</span>
-                        </div>
-                        <div class="news-title">英伟达发布Cosmos物理AI模型</div>
-                        <div class="news-desc">英伟达发布Cosmos Transfer 2.5、Cosmos Reason 2及Isaac GR00T N1.6人形机器人开源模型。黄仁勋表示："物理AI是公司下一个重大增长阶段"。</div>
-                        <div class="news-source">📰 New Electronics | <a href="https://www.newelectronics.co.uk/content/features/ces-reframed" target="_blank">原文链接</a></div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title"><span class="icon">📊</span> 行业数据</div>
-                </div>
-                <div class="news-list">
-                    <div class="news-card">
-                        <div class="news-header">
-                            <span class="news-tag tag-data">数据</span>
-                        </div>
-                        <div class="news-title">2026年AI的40个狂热风口</div>
-                        <div class="news-desc">36氪发布2026年AI创业机会全景图，涵盖AI+制造、医疗、教育等多个赛道。工业AI、端侧AI、Agent平台成为最受关注的方向。</div>
-                        <div class="news-source">📰 36氪 | <a href="https://36kr.com/p/3676032461546116" target="_blank">原文链接</a></div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title"><span class="icon">📱</span> 大模型动态</div>
-                </div>
-                <div class="news-list">
-                    <div class="news-card">
-                        <div class="news-header">
-                            <span class="news-tag tag-llm">大模型</span>
-                        </div>
-                        <div class="news-title">OpenAI - 神秘模型连破数学难题</div>
-                        <div class="news-desc">AI开始创造"新知识"，正在解答从未发表过的原创数学问题。</div>
-                        <div class="news-source">📰 新浪财经 | <a href="https://finance.sina.com.cn/stock/t/2026-02-15/doc-inhmwwmk1068846.shtml" target="_blank">原文链接</a></div>
-                    </div>
-                    <div class="news-card">
-                        <div class="news-header">
-                            <span class="news-tag tag-llm">大模型</span>
-                        </div>
-                        <div class="news-title">Anthropic - Claude Opus 4.6</div>
-                        <div class="news-desc">支持自主长期任务执行，Agentic AI成本大幅下降。</div>
-                        <div class="news-source">📰 AICost | <a href="https://aicost.org/blog/ai-today-news-2026-02-15" target="_blank">原文链接</a></div>
-                    </div>
-                </div>
-            </div>
+        <div class="grid" id="reportGrid">
+            <!-- Cards will be inserted here -->
         </div>
         
         <div class="footer">
@@ -271,10 +248,170 @@
         </div>
     </div>
     
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title" id="modalTitle">2026年2月16日</span>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content -->
+            </div>
+        </div>
+    </div>
+    
     <script>
-        function toggle(card) {
-            card.classList.toggle('expanded');
+        // Report Data
+        const reports = [
+            {
+                date: "2026年2月16日",
+                count: 8,
+                focus: [
+                    "中国AI视频模型Seedance 2.0全球走红",
+                    "山东举办国内首个机器人春晚",
+                    "OpenAI神秘模型连破6道前沿数学难题"
+                ],
+                news: [
+                    { type: "focus", title: "中国AI视频模型Seedance 2.0全球走红", desc: "中国人工智能视频创作模型Seedance 2.0近日发布后在全球网络上迅速走红，各国用户大量分享该模型生成的超逼真视频，引发国际社会广泛关注。", source: "人民网", url: "http://finance.people.com.cn/n1/2026/0215/c1004-40666458.html" },
+                    { type: "focus", title: "山东举办国内首个机器人春晚", desc: "山东省机器人春节晚会在山东济宁大剧院举行，集结宇树科技、珞石、智元创新等14家企业提供的200余台机器人参与表演。", source: "新浪科技", url: "https://k.sina.com.cn/article_7857201856_1d45362c001902emvi.html" },
+                    { type: "focus", title: "OpenAI神秘模型连破6道前沿数学难题", desc: "AI正在尝试解答人类数学家正在研究的、从未发表过的原创问题。奥特曼表示AI正在创造"新知识"。", source: "新浪财经", url: "https://finance.sina.com.cn/stock/t/2026-02-15/doc-inhmwwmk1068846.shtml" },
+                    { type: "funding", title: "Neysa (印度) - 12亿美元", desc: "投资方: Blackstone。AI云平台，部署2万GPU助力印度AI基础设施建设。", source: "Startup News FYI", url: "https://startupnews.fyi/2026/02/16/blackstone-leads-1-2-billion-funding-round-in-ai-platform-neysa-ahead-of-india-ai-impact-summit-2026/" },
+                    { type: "funding", title: "Adapt - 1000万美元种子轮", desc: "旧金山AI计算机初创，致力于为企业构建AI专用计算机。", source: "OHSEM", url: "https://ohsem.me/2026/02/adapt-raises-10m-seed-to-build-the-ai-computer-for-business/" },
+                    { type: "robotics", title: "中国人形机器人将登春晚秀肌肉", desc: "中国占全球去年约13000台人形机器人出货量的90%，摩根士丹利预测今年销量将翻倍至28000台。", source: "BusinessWorld", url: "https://www.bworldonline.com/technology/2026/02/16/730821/chinas-humanoid-robots-ready-for-lunar-new-year-showtime/" },
+                    { type: "robotics", title: "英伟达发布Cosmos物理AI模型", desc: "英伟达发布Cosmos Transfer 2.5、Cosmos Reason 2及Isaac GR00T N1.6人形机器人开源模型。", source: "New Electronics", url: "https://www.newelectronics.co.uk/content/features/ces-reframed" },
+                    { type: "data", title: "2026年AI的40个狂热风口", desc: "36氪发布2026年AI创业机会全景图，涵盖AI+制造、医疗、教育等多个赛道。", source: "36kr", url: "https://36kr.com/p/3676032461546116" },
+                    { type: "llm", title: "OpenAI - 神秘模型连破数学难题", desc: "AI开始创造"新知识"，正在解答从未发表过的原创数学问题。", source: "新浪财经", url: "https://finance.sina.com.cn/stock/t/2026-02-15/doc-inhmwwmk1068846.shtml" },
+                    { type: "llm", title: "Anthropic - Claude Opus 4.6", desc: "支持自主长期任务执行，Agentic AI成本大幅下降。", source: "AICost", url: "https://aicost.org/blog/ai-today-news-2026-02-15" }
+                ]
+            }
+        ];
+        
+        // Render Cards
+        function renderCards() {
+            const grid = document.getElementById('reportGrid');
+            grid.innerHTML = reports.map((r, i) => `
+                <div class="card" onclick="openModal(${i})">
+                    <div class="card-header">
+                        <div class="card-date">📅 ${r.date}</div>
+                        <div class="card-count">${r.count} 条</div>
+                    </div>
+                    <div class="card-preview">
+                        ${r.focus.slice(0,3).map((f, j) => `
+                            <div class="card-preview-item">
+                                <span class="card-preview-num">${j+1}</span>
+                                <span class="card-preview-text">${f}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
         }
+        
+        // Open Modal
+        function openModal(index) {
+            const r = reports[index];
+            document.getElementById('modalTitle').textContent = r.date;
+            
+            let html = '';
+            
+            // Focus
+            const focus = r.news.filter(n => n.type === 'focus');
+            if (focus.length) {
+                html += '<div class="section"><div class="section-title">🔥 今日焦点</div>';
+                focus.forEach(n => {
+                    html += `<div class="news-item">
+                        <span class="news-tag tag-focus">焦点</span>
+                        <div class="news-title">${n.title}</div>
+                        <div class="news-desc">${n.desc}</div>
+                        <div class="news-source">📰 ${n.source} | <a href="${n.url}" target="_blank">原文链接</a></div>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+            
+            // Funding
+            const funding = r.news.filter(n => n.type === 'funding');
+            if (funding.length) {
+                html += '<div class="section"><div class="section-title">💰 融资动态</div>';
+                funding.forEach(n => {
+                    html += `<div class="funding-item">
+                        <div class="funding-title">${n.title}</div>
+                        <div class="funding-detail">${n.desc}</div>
+                        <div class="news-source">📰 ${n.source} | <a href="${n.url}" target="_blank">原文链接</a></div>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+            
+            // Robotics
+            const robotics = r.news.filter(n => n.type === 'robotics');
+            if (robotics.length) {
+                html += '<div class="section"><div class="section-title">🤖 机器人进展</div>';
+                robotics.forEach(n => {
+                    html += `<div class="news-item">
+                        <span class="news-tag tag-robotics">机器人</span>
+                        <div class="news-title">${n.title}</div>
+                        <div class="news-desc">${n.desc}</div>
+                        <div class="news-source">📰 ${n.source} | <a href="${n.url}" target="_blank">原文链接</a></div>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+            
+            // Data
+            const data = r.news.filter(n => n.type === 'data');
+            if (data.length) {
+                html += '<div class="section"><div class="section-title">📊 行业数据</div>';
+                data.forEach(n => {
+                    html += `<div class="news-item">
+                        <span class="news-tag tag-data">数据</span>
+                        <div class="news-title">${n.title}</div>
+                        <div class="news-desc">${n.desc}</div>
+                        <div class="news-source">📰 ${n.source} | <a href="${n.url}" target="_blank">原文链接</a></div>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+            
+            // LLM
+            const llm = r.news.filter(n => n.type === 'llm');
+            if (llm.length) {
+                html += '<div class="section"><div class="section-title">📱 大模型动态</div>';
+                llm.forEach(n => {
+                    html += `<div class="news-item">
+                        <span class="news-tag tag-llm">大模型</span>
+                        <div class="news-title">${n.title}</div>
+                        <div class="news-desc">${n.desc}</div>
+                        <div class="news-source">📰 ${n.source} | <a href="${n.url}" target="_blank">原文链接</a></div>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+            
+            document.getElementById('modalBody').innerHTML = html;
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close Modal
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close on overlay click
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        
+        // Close on escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+        
+        // Init
+        renderCards();
     </script>
 </body>
 </html>

@@ -2,48 +2,48 @@
   "date": "2026年2月18日",
   "focus": [
     {
-      "title": "印度AI峰会召开 全球科技巨头齐聚新德里",
-      "desc": "2月16日开幕的印度AI峰会吸引OpenAI、Anthropic、NVIDIA、Google、Microsoft高管出席，OpenAI CEO Sam Altman、Google DeepMind CEO Demis Hassabis、Anthropic CEO Dario Amodei将发表演讲。印度总理莫迪力图让印度在AI领域占据领导地位。",
-      "source": "Reuters | https://www.reuters.com/business/retail-consumer/openai-google-india-hosts-global-ai-summit-2026-02-16/"
+      "title": "人形机器人狂飙2026：谁为盛宴买单？",
+      "desc": "2026年马年春晚舞台，宇树科技、银河通用、松延动力、魔法原子四家国产机器人企业集体亮相。宇树G1与H2实现全球首次全自主集群武术表演，最快跑位达4m/s。京东数据显示，春晚开播两小时机器人搜索量环比增长超300%。",
+      "source": "36氪 | https://36kr.com/p/3688239515217796"
     },
     {
-      "title": "央视春晚变\"科技秀\" 六家机器人品牌集中亮相",
-      "desc": "除夕夜春晚舞台上，宇树科技、银河通用、智元机器人等六家人形机器人企业登台。宇树G1和H2完成全球首次全自主人形机器人集群武术表演，Unitree G1售价超过20万元。",
-      "source": "36氪 | https://36kr.com/p/3688239515217796"
+      "title": "具身智能2025年融资超379亿元",
+      "desc": "根据IT桔子数据，2025年具身智能领域融资超304起，总额379亿元，是2024年的4倍。宇树科技、银河通用冲刺上市。",
+      "source": "投资界 | https://news.pedaily.cn/202602/561075.shtml"
     }
   ],
   "funding": [
     {
-      "title": "Anthropic完成300亿美元G轮融资 估值3800亿美元",
-      "desc": "2月12日，Anthropic宣布完成300亿美元G轮融资，融资后估值达到3800亿美元。这是AI领域最大规模融资之一。",
-      "source": "Wikipedia | https://en.wikipedia.org/wiki/Anthropic"
+      "title": "具身智能2025年融资379亿元 304起交易",
+      "desc": "根据IT桔子数据，2025年具身智能全年融资事件超304起、总融资额379亿元，分别是2024年的2.95倍、4.05倍。",
+      "source": "投资界 | https://news.pedaily.cn/202602/561075.shtml"
     },
     {
-      "title": "Meta扩大NVIDIA芯片订单 2026年AI投资达1350亿美元",
-      "desc": "Meta宣布2026年AI投资预算最高1350亿美元，并与NVIDIA达成数十亿美元芯片协议，用于数据中心建设。",
-      "source": "CNBC | https://www.cnbc.com/2026/02/17/meta-nvidia-deal-ai-data-center-chips.html"
-    },
-    {
-      "title": "人形机器人2026大爆发 304起融资379亿元",
-      "desc": "根据IT桔子数据，2025年具身智能领域融资超304起，总额379亿元，是2024年的4倍。宇树科技已完成IPO辅导冲刺A股\"人形机器人第一股\"。",
-      "source": "新浪财经 | https://finance.sina.com.cn/stock/t/2026-02-18/doc-inhnfaym8202102.shtml"
+      "title": "玖物智能冲击IPO 盈利超3000万",
+      "desc": "国内第二大具身智能企业玖物智能准备上市，专注工厂搬运场景，2025年盈利超3000万元。",
+      "source": "36氪 | https://36kr.com/p/3660445079184008"
     }
   ],
   "tech": [
     {
-      "title": "CES 2026：中国18家公司推出消费级AI机器人",
-      "desc": "18家中国公司在CES 2026上展示了陪伴教育机器人、情绪机器人等产品，涵盖仿生宠物、桌面小伙伴、飞行精灵等形态。",
-      "source": "36氪 | https://36kr.com/p/3630131383977225"
+      "title": "宇树科技2025年出货超5500台",
+      "desc": "宇树科技官方透露，2025年人形机器人出货量超5500台，本体量产下线超6500台，春晚搭载全新自研灵巧手。",
+      "source": "36氪 | https://36kr.com/p/3688239515217796"
     },
     {
-      "title": "NVIDIA GB300 NVL72推理性能提升50倍",
-      "desc": "NVIDIA在印度AI峰会上宣布GB300 NVL72推理性能提升50倍，每百万token成本降低35倍。",
-      "source": "@nvidia | https://x.com/nvidia/status/2023918736881623505"
+      "title": "全球2025年人形机器人出货1.3万台",
+      "desc": "Omdia数据显示，2025年全球人形机器人出货量约1.3万台，是2024年的5倍。中国三家公司超1000台：智元5168台、宇树4200台、优必选1000台。",
+      "source": "36氪 | https://36kr.com/p/3688239515217796"
     },
     {
-      "title": "Grok 4.20数学推理能力超越GPT-5.2 Pro",
-      "desc": "用户测试显示，Grok 4.20在解决复杂数学问题仅需30秒，而GPT-5.2 Pro需要9分钟。",
-      "source": "@elonmusk | https://x.com/elonmusk/status/2024046968272453668"
+      "title": "DeepSeek V3.2发布 改变AI竞争格局",
+      "desc": "DeepSeek V3.2发布后引发行业震动，被评价为改变AI竞争格局，在多项测试中表现优异，对标GPT-5、Gemini 3。",
+      "source": "AI News | https://archive.ph/gfnDl"
+    },
+    {
+      "title": "Claude Sonnet 4.6发布 估值3800亿美元",
+      "desc": "Anthropic发布Claude Sonnet 4.6，定位工作主力模型，完成300亿美元融资，估值达3800亿美元。",
+      "source": "Financial Content | https://markets.financialcontent.com/stocks/article/tokenring-2026-2-18-anthropic-unleashes-claude-sonnet-46"
     }
   ]
 }
